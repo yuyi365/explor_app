@@ -18,7 +18,7 @@ const PlacesContainer = ({ savedPlaces, setSavedPlaces, handleDelete }) => {
 
   const visiblePlaces = savedPlaces
     .filter((place) => {
-      console.log(selectedCategory, place);
+      console.log(place);
       return selectedCategory === "all" || place.category === selectedCategory;
     })
     .filter((place) => {

@@ -22,15 +22,15 @@ const PlaceDetails = ({ place, selected, refProp, user }) => {
   if (selected)
     refProp?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
 
-  console.log(place);
+  console.log(place.ranking_category);
 
   const handleAddPlace = () => {
     const placeInfo = {
       name: place.name,
       location: place.ranking_geo,
       image: place.photo.images.large.url,
-      user_id: user.id,
       category: place.ranking_category,
+      user_id: user.id,
     };
 
     fetch("/places", {

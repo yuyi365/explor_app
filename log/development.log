@@ -9369,3 +9369,519 @@ Processing by UsersController#show as */*
 Completed 404 Not Found in 30ms (Views: 25.4ms | ActiveRecord: 0.0ms | Allocations: 665)
 
 
+Started POST "/login" for 127.0.0.1 at 2022-01-18 17:25:55 -0500
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers]   [1m[36mPlace Load (0.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:6:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (22.23ms)
+Completed 200 OK in 334ms (Views: 28.4ms | ActiveRecord: 11.6ms | Allocations: 22215)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 17:25:58 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.9ms)
+Completed 200 OK in 20ms (Views: 2.8ms | ActiveRecord: 5.8ms | Allocations: 2427)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-18 17:26:07 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Shanghai Asian Cuisine", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-w/05/6c/6b/85/love-those-tiny-buns.jpg", "user_id"=>1, "category"=>"restaurant", "place"=>{"name"=>"Shanghai Asian Cuisine", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-w/05/6c/6b/85/love-those-tiny-buns.jpg", "category"=>"restaurant", "user_id"=>1}}
+[31mUnpermitted parameters: :category, :place[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (15.3ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Shanghai Asian Cuisine"], ["location", "New York City"], ["image", "https://media-cdn.tripadvisor.com/media/photo-w/05/6c/6b/85/love-those-tiny-buns.jpg"], ["user_id", 1], ["created_at", "2022-01-18 22:26:07.524446"], ["updated_at", "2022-01-18 22:26:07.524446"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.63ms)
+Completed 201 Created in 83ms (Views: 2.1ms | ActiveRecord: 24.1ms | Allocations: 3241)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-18 17:26:44 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"City Vineyard", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-w/14/94/d8/ca/city-vineyard.jpg", "user_id"=>1, "category"=>"restaurant", "place"=>{"name"=>"City Vineyard", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-w/14/94/d8/ca/city-vineyard.jpg", "category"=>"restaurant", "user_id"=>1}}
+[31mUnpermitted parameters: :category, :place[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (0.8ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "City Vineyard"], ["location", "New York City"], ["image", "https://media-cdn.tripadvisor.com/media/photo-w/14/94/d8/ca/city-vineyard.jpg"], ["user_id", 1], ["created_at", "2022-01-18 22:26:44.672641"], ["updated_at", "2022-01-18 22:26:44.672641"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.55ms)
+Completed 201 Created in 17ms (Views: 1.3ms | ActiveRecord: 3.1ms | Allocations: 2834)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-18 17:27:04 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Courtyard New York Downtown Manhattan / Financial District", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/21/e3/70/7c/king-guest-room.jpg", "user_id"=>1, "category"=>"hotel", "place"=>{"name"=>"Courtyard New York Downtown Manhattan / Financial District", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/21/e3/70/7c/king-guest-room.jpg", "category"=>"hotel", "user_id"=>1}}
+[31mUnpermitted parameters: :category, :place[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (1.8ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Courtyard New York Downtown Manhattan / Financial District"], ["location", "New York City"], ["image", "https://media-cdn.tripadvisor.com/media/photo-s/21/e3/70/7c/king-guest-room.jpg"], ["user_id", 1], ["created_at", "2022-01-18 22:27:04.753654"], ["updated_at", "2022-01-18 22:27:04.753654"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.67ms)
+Completed 201 Created in 20ms (Views: 1.7ms | ActiveRecord: 4.9ms | Allocations: 2835)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-18 17:27:08 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Artezen Hotel", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/16/b2/24/f7/entrance.jpg", "user_id"=>1, "category"=>"hotel", "place"=>{"name"=>"Artezen Hotel", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/16/b2/24/f7/entrance.jpg", "category"=>"hotel", "user_id"=>1}}
+[31mUnpermitted parameters: :category, :place[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (0.8ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Artezen Hotel"], ["location", "New York City"], ["image", "https://media-cdn.tripadvisor.com/media/photo-s/16/b2/24/f7/entrance.jpg"], ["user_id", 1], ["created_at", "2022-01-18 22:27:08.552255"], ["updated_at", "2022-01-18 22:27:08.552255"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.56ms)
+Completed 201 Created in 19ms (Views: 1.5ms | ActiveRecord: 4.2ms | Allocations: 2810)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-18 17:27:19 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Empire State Building", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-o/1b/c2/e0/61/open-daily-11am-11pm.jpg", "user_id"=>1, "category"=>"attraction", "place"=>{"name"=>"Empire State Building", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-o/1b/c2/e0/61/open-daily-11am-11pm.jpg", "category"=>"attraction", "user_id"=>1}}
+[31mUnpermitted parameters: :category, :place[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (0.5ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Empire State Building"], ["location", "New York City"], ["image", "https://media-cdn.tripadvisor.com/media/photo-o/1b/c2/e0/61/open-daily-11am-11pm.jpg"], ["user_id", 1], ["created_at", "2022-01-18 22:27:19.919741"], ["updated_at", "2022-01-18 22:27:19.919741"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.53ms)
+Completed 201 Created in 31ms (Views: 1.1ms | ActiveRecord: 2.2ms | Allocations: 2814)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-18 17:27:25 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Williamsburg Smorgasburg", "location"=>"Brooklyn", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/0c/34/d3/be/williamsburg-smorgasburg.jpg", "user_id"=>1, "category"=>"attraction", "place"=>{"name"=>"Williamsburg Smorgasburg", "location"=>"Brooklyn", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/0c/34/d3/be/williamsburg-smorgasburg.jpg", "category"=>"attraction", "user_id"=>1}}
+[31mUnpermitted parameters: :category, :place[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (1.7ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Williamsburg Smorgasburg"], ["location", "Brooklyn"], ["image", "https://media-cdn.tripadvisor.com/media/photo-s/0c/34/d3/be/williamsburg-smorgasburg.jpg"], ["user_id", 1], ["created_at", "2022-01-18 22:27:25.851641"], ["updated_at", "2022-01-18 22:27:25.851641"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.47ms)
+Completed 201 Created in 17ms (Views: 1.3ms | ActiveRecord: 3.7ms | Allocations: 2808)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-18 17:27:30 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"The High Line", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/0b/86/71/32/at-sunset.jpg", "user_id"=>1, "category"=>"attraction", "place"=>{"name"=>"The High Line", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/0b/86/71/32/at-sunset.jpg", "category"=>"attraction", "user_id"=>1}}
+[31mUnpermitted parameters: :category, :place[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (1.4ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "The High Line"], ["location", "New York City"], ["image", "https://media-cdn.tripadvisor.com/media/photo-s/0b/86/71/32/at-sunset.jpg"], ["user_id", 1], ["created_at", "2022-01-18 22:27:30.045663"], ["updated_at", "2022-01-18 22:27:30.045663"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 201 Created in 21ms (Views: 1.1ms | ActiveRecord: 4.2ms | Allocations: 2807)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 17:27:32 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (7.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (14.7ms)
+Completed 200 OK in 20ms (Views: 7.9ms | ActiveRecord: 7.9ms | Allocations: 3223)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 17:27:32 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.05ms)
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.5ms | Allocations: 2912)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 17:29:37 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (10.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.32ms)
+Completed 200 OK in 40ms (Views: 5.6ms | ActiveRecord: 11.2ms | Allocations: 3239)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 17:29:40 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (1.8ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (8.62ms)
+Completed 200 OK in 13ms (Views: 7.3ms | ActiveRecord: 2.3ms | Allocations: 3241)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 17:29:40 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.36ms)
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 0.6ms | Allocations: 2924)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 17:31:15 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (40.68ms)
+Completed 200 OK in 59ms (Views: 41.6ms | ActiveRecord: 2.5ms | Allocations: 3222)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 17:32:28 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (4.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (13.99ms)
+Completed 200 OK in 36ms (Views: 10.9ms | ActiveRecord: 4.6ms | Allocations: 3234)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-18 17:32:44 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Pizzeria Toro", "location"=>"Durham", "image"=>"https://media-cdn.tripadvisor.com/media/photo-p/04/4e/70/c9/pizzeria-toro.jpg", "user_id"=>1, "category"=>"restaurant", "place"=>{"name"=>"Pizzeria Toro", "location"=>"Durham", "image"=>"https://media-cdn.tripadvisor.com/media/photo-p/04/4e/70/c9/pizzeria-toro.jpg", "category"=>"restaurant", "user_id"=>1}}
+[31mUnpermitted parameters: :category, :place[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (14.7ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Pizzeria Toro"], ["location", "Durham"], ["image", "https://media-cdn.tripadvisor.com/media/photo-p/04/4e/70/c9/pizzeria-toro.jpg"], ["user_id", 1], ["created_at", "2022-01-18 22:32:44.568241"], ["updated_at", "2022-01-18 22:32:44.568241"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 201 Created in 41ms (Views: 1.4ms | ActiveRecord: 19.8ms | Allocations: 2807)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-18 17:32:49 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Foster's Market", "location"=>"Durham", "image"=>"https://media-cdn.tripadvisor.com/media/photo-o/05/82/c1/e1/foster-s-market.jpg", "user_id"=>1, "category"=>"restaurant", "place"=>{"name"=>"Foster's Market", "location"=>"Durham", "image"=>"https://media-cdn.tripadvisor.com/media/photo-o/05/82/c1/e1/foster-s-market.jpg", "category"=>"restaurant", "user_id"=>1}}
+[31mUnpermitted parameters: :category, :place[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (0.6ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Foster's Market"], ["location", "Durham"], ["image", "https://media-cdn.tripadvisor.com/media/photo-o/05/82/c1/e1/foster-s-market.jpg"], ["user_id", 1], ["created_at", "2022-01-18 22:32:49.933991"], ["updated_at", "2022-01-18 22:32:49.933991"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.59ms)
+Completed 201 Created in 23ms (Views: 1.5ms | ActiveRecord: 4.1ms | Allocations: 2815)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-18 17:32:52 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"JuJu Durham", "location"=>"Durham", "image"=>"https://media-cdn.tripadvisor.com/media/photo-w/07/65/fa/83/juju-asian-tapas-bar.jpg", "user_id"=>1, "category"=>"restaurant", "place"=>{"name"=>"JuJu Durham", "location"=>"Durham", "image"=>"https://media-cdn.tripadvisor.com/media/photo-w/07/65/fa/83/juju-asian-tapas-bar.jpg", "category"=>"restaurant", "user_id"=>1}}
+[31mUnpermitted parameters: :category, :place[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (1.1ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "JuJu Durham"], ["location", "Durham"], ["image", "https://media-cdn.tripadvisor.com/media/photo-w/07/65/fa/83/juju-asian-tapas-bar.jpg"], ["user_id", 1], ["created_at", "2022-01-18 22:32:52.714240"], ["updated_at", "2022-01-18 22:32:52.714240"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.62ms)
+Completed 201 Created in 22ms (Views: 1.8ms | ActiveRecord: 4.4ms | Allocations: 2807)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 17:32:56 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (4.83ms)
+Completed 200 OK in 14ms (Views: 4.8ms | ActiveRecord: 4.3ms | Allocations: 3626)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 17:32:57 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.34ms)
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 0.6ms | Allocations: 3320)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 17:34:33 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.72ms)
+Completed 200 OK in 15ms (Views: 5.2ms | ActiveRecord: 1.0ms | Allocations: 3318)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 17:34:49 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (1.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (21.4ms)
+Completed 200 OK in 65ms (Views: 21.3ms | ActiveRecord: 1.8ms | Allocations: 3630)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-18 17:36:26 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Shanghai Asian Cuisine", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-w/05/6c/6b/85/love-those-tiny-buns.jpg", "category"=>"restaurant", "user_id"=>1, "place"=>{"name"=>"Shanghai Asian Cuisine", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-w/05/6c/6b/85/love-those-tiny-buns.jpg", "category"=>"restaurant", "user_id"=>1}}
+[31mUnpermitted parameters: :category, :place[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (1.1ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Shanghai Asian Cuisine"], ["location", "New York City"], ["image", "https://media-cdn.tripadvisor.com/media/photo-w/05/6c/6b/85/love-those-tiny-buns.jpg"], ["user_id", 1], ["created_at", "2022-01-18 22:36:26.077828"], ["updated_at", "2022-01-18 22:36:26.077828"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.73ms)
+Completed 201 Created in 20ms (Views: 2.3ms | ActiveRecord: 2.5ms | Allocations: 2809)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 17:36:30 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (4.43ms)
+Completed 200 OK in 7ms (Views: 4.5ms | ActiveRecord: 0.6ms | Allocations: 3761)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 17:36:30 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.81ms)
+Completed 200 OK in 7ms (Views: 4.0ms | ActiveRecord: 0.8ms | Allocations: 3456)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 17:37:04 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.77ms)
+Completed 200 OK in 19ms (Views: 7.9ms | ActiveRecord: 0.9ms | Allocations: 3458)
+
+
+Started DELETE "/places/6" for 127.0.0.1 at 2022-01-18 17:38:18 -0500
+Processing by PlacesController#destroy as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:34:in `find_place'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:27:in `destroy'
+  [1m[36mPlace Destroy (1.4ms)[0m  [1m[31mDELETE FROM "places" WHERE "places"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/places_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:27:in `destroy'
+Completed 204 No Content in 52ms (ActiveRecord: 32.6ms | Allocations: 5666)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 17:38:21 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (6.0ms)
+Completed 200 OK in 39ms (Views: 7.3ms | ActiveRecord: 17.3ms | Allocations: 8809)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-18 17:38:32 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Juliana's", "location"=>"Brooklyn", "image"=>"https://media-cdn.tripadvisor.com/media/photo-w/11/74/5e/e9/juliana-s-pizza.jpg", "category"=>"restaurant", "user_id"=>1, "place"=>{"name"=>"Juliana's", "location"=>"Brooklyn", "image"=>"https://media-cdn.tripadvisor.com/media/photo-w/11/74/5e/e9/juliana-s-pizza.jpg", "category"=>"restaurant", "user_id"=>1}}
+[31mUnpermitted parameter: :place[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (3.1ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Juliana's"], ["location", "Brooklyn"], ["image", "https://media-cdn.tripadvisor.com/media/photo-w/11/74/5e/e9/juliana-s-pizza.jpg"], ["category", "restaurant"], ["user_id", 1], ["created_at", "2022-01-18 22:38:32.604206"], ["updated_at", "2022-01-18 22:38:32.604206"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (21.88ms)
+Completed 201 Created in 58ms (Views: 23.3ms | ActiveRecord: 4.6ms | Allocations: 3070)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-18 17:38:38 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"The Dead Rabbit", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/06/85/8f/22/free-cocktail-in-teacup.jpg", "category"=>"restaurant", "user_id"=>1, "place"=>{"name"=>"The Dead Rabbit", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/06/85/8f/22/free-cocktail-in-teacup.jpg", "category"=>"restaurant", "user_id"=>1}}
+[31mUnpermitted parameter: :place[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (0.8ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "The Dead Rabbit"], ["location", "New York City"], ["image", "https://media-cdn.tripadvisor.com/media/photo-s/06/85/8f/22/free-cocktail-in-teacup.jpg"], ["category", "restaurant"], ["user_id", 1], ["created_at", "2022-01-18 22:38:38.877796"], ["updated_at", "2022-01-18 22:38:38.877796"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.5ms)
+Completed 201 Created in 19ms (Views: 1.5ms | ActiveRecord: 3.8ms | Allocations: 2832)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-18 17:38:53 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Sonder l Battery Park", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/1d/9f/89/43/sonder-at-the-battery.jpg", "category"=>"other", "user_id"=>1, "place"=>{"name"=>"Sonder l Battery Park", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/1d/9f/89/43/sonder-at-the-battery.jpg", "category"=>"other", "user_id"=>1}}
+[31mUnpermitted parameter: :place[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (1.1ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Sonder l Battery Park"], ["location", "New York City"], ["image", "https://media-cdn.tripadvisor.com/media/photo-s/1d/9f/89/43/sonder-at-the-battery.jpg"], ["category", "other"], ["user_id", 1], ["created_at", "2022-01-18 22:38:53.679606"], ["updated_at", "2022-01-18 22:38:53.679606"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (6.37ms)
+Completed 201 Created in 79ms (Views: 10.5ms | ActiveRecord: 9.6ms | Allocations: 2831)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-18 17:38:58 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Aloft New York Brooklyn", "location"=>"Brooklyn", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/1c/b3/98/d3/king-guest-room-with.jpg", "category"=>"hotel", "user_id"=>1, "place"=>{"name"=>"Aloft New York Brooklyn", "location"=>"Brooklyn", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/1c/b3/98/d3/king-guest-room-with.jpg", "category"=>"hotel", "user_id"=>1}}
+[31mUnpermitted parameter: :place[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (0.6ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Aloft New York Brooklyn"], ["location", "Brooklyn"], ["image", "https://media-cdn.tripadvisor.com/media/photo-s/1c/b3/98/d3/king-guest-room-with.jpg"], ["category", "hotel"], ["user_id", 1], ["created_at", "2022-01-18 22:38:58.427886"], ["updated_at", "2022-01-18 22:38:58.427886"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.64ms)
+Completed 201 Created in 18ms (Views: 1.7ms | ActiveRecord: 3.4ms | Allocations: 2830)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-18 17:39:19 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Delacorte Clock", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-w/19/a7/29/03/delacorte-clock.jpg", "category"=>"attraction", "user_id"=>1, "place"=>{"name"=>"Delacorte Clock", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-w/19/a7/29/03/delacorte-clock.jpg", "category"=>"attraction", "user_id"=>1}}
+[31mUnpermitted parameter: :place[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (0.9ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Delacorte Clock"], ["location", "New York City"], ["image", "https://media-cdn.tripadvisor.com/media/photo-w/19/a7/29/03/delacorte-clock.jpg"], ["category", "attraction"], ["user_id", 1], ["created_at", "2022-01-18 22:39:19.151299"], ["updated_at", "2022-01-18 22:39:19.151299"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.51ms)
+Completed 201 Created in 16ms (Views: 1.3ms | ActiveRecord: 2.3ms | Allocations: 2830)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 17:39:22 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (6.76ms)
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 0.7ms | Allocations: 4315)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 17:39:22 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.26ms)
+Completed 200 OK in 7ms (Views: 4.6ms | ActiveRecord: 1.0ms | Allocations: 4018)
+
+
+Started DELETE "/places/13" for 127.0.0.1 at 2022-01-18 17:40:08 -0500
+Processing by PlacesController#destroy as */*
+  Parameters: {"id"=>"13"}
+  [1m[36mPlace Load (0.9ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:34:in `find_place'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:27:in `destroy'
+  [1m[36mPlace Destroy (0.7ms)[0m  [1m[31mDELETE FROM "places" WHERE "places"."id" = $1[0m  [["id", 13]]
+  ↳ app/controllers/places_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:27:in `destroy'
+Completed 204 No Content in 16ms (ActiveRecord: 2.6ms | Allocations: 1740)
+
+
+Started DELETE "/places/14" for 127.0.0.1 at 2022-01-18 17:40:10 -0500
+Processing by PlacesController#destroy as */*
+  Parameters: {"id"=>"14"}
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:34:in `find_place'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:27:in `destroy'
+  [1m[36mPlace Destroy (2.3ms)[0m  [1m[31mDELETE FROM "places" WHERE "places"."id" = $1[0m  [["id", 14]]
+  ↳ app/controllers/places_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:27:in `destroy'
+Completed 204 No Content in 12ms (ActiveRecord: 3.9ms | Allocations: 1739)
+
+
+Started DELETE "/places/15" for 127.0.0.1 at 2022-01-18 17:40:11 -0500
+Processing by PlacesController#destroy as */*
+  Parameters: {"id"=>"15"}
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:34:in `find_place'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:27:in `destroy'
+  [1m[36mPlace Destroy (1.3ms)[0m  [1m[31mDELETE FROM "places" WHERE "places"."id" = $1[0m  [["id", 15]]
+  ↳ app/controllers/places_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:27:in `destroy'
+Completed 204 No Content in 12ms (ActiveRecord: 4.2ms | Allocations: 1740)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-01-18 17:40:49 -0500
+Processing by SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 180)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 17:40:50 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 404 Not Found in 4ms (Views: 2.7ms | ActiveRecord: 0.0ms | Allocations: 663)
+
+

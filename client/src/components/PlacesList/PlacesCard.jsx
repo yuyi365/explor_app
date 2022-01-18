@@ -8,10 +8,10 @@ import {
   Grid,
 } from "@material-ui/core";
 
-import useStyles from "./styles";
+// import useStyles from "./styles";
 
 const PlacesCard = ({ id, myPlace, handleDelete }) => {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   const handleDeleteClick = () => {
     fetch(`places/${id}`, {

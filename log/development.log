@@ -7245,3 +7245,2127 @@ Processing by UsersController#show as */*
 Completed 404 Not Found in 2ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 356)
 
 
+Started GET "/me" for 127.0.0.1 at 2022-01-13 17:54:50 -0500
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 404 Not Found in 20ms (Views: 1.6ms | ActiveRecord: 0.3ms | Allocations: 6243)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-13 17:55:48 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 404 Not Found in 8ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 362)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-13 17:55:50 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 404 Not Found in 2ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 356)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-01-13 17:55:54 -0500
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers]   [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:6:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (25.11ms)
+Completed 200 OK in 332ms (Views: 33.1ms | ActiveRecord: 2.3ms | Allocations: 15795)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-13 17:56:01 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Kuu Ramen", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/0e/74/22/3a/beef-miso-ramen.jpg", "user_id"=>1, "place"=>{"name"=>"Kuu Ramen", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/0e/74/22/3a/beef-miso-ramen.jpg", "user_id"=>1}}
+[31mUnpermitted parameter: :place[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (5.0ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Kuu Ramen"], ["location", "New York City"], ["image", "https://media-cdn.tripadvisor.com/media/photo-s/0e/74/22/3a/beef-miso-ramen.jpg"], ["user_id", 1], ["created_at", "2022-01-13 22:56:01.662233"], ["updated_at", "2022-01-13 22:56:01.662233"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 201 Created in 22ms (Views: 1.0ms | ActiveRecord: 6.5ms | Allocations: 3199)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-13 17:56:07 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Blue Ribbon Brasserie", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-w/11/ed/0f/0f/paella-royale.jpg", "user_id"=>1, "place"=>{"name"=>"Blue Ribbon Brasserie", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-w/11/ed/0f/0f/paella-royale.jpg", "user_id"=>1}}
+[31mUnpermitted parameter: :place[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (0.8ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Blue Ribbon Brasserie"], ["location", "New York City"], ["image", "https://media-cdn.tripadvisor.com/media/photo-w/11/ed/0f/0f/paella-royale.jpg"], ["user_id", 1], ["created_at", "2022-01-13 22:56:07.078944"], ["updated_at", "2022-01-13 22:56:07.078944"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 201 Created in 15ms (Views: 1.4ms | ActiveRecord: 3.2ms | Allocations: 2743)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-13 17:56:10 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (6.63ms)
+Completed 200 OK in 12ms (Views: 7.5ms | ActiveRecord: 0.6ms | Allocations: 2297)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-13 17:56:10 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 1896)
+
+
+Started DELETE "/places/11" for 127.0.0.1 at 2022-01-13 17:56:14 -0500
+Processing by PlacesController#destroy as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:34:in `find_place'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/places_controller.rb:27:in `destroy'
+  [1m[36mPlace Destroy (1.3ms)[0m  [1m[31mDELETE FROM "places" WHERE "places"."id" = ?[0m  [["id", 11]]
+  ↳ app/controllers/places_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/places_controller.rb:27:in `destroy'
+Completed 204 No Content in 7ms (ActiveRecord: 2.6ms | Allocations: 1851)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-13 17:56:16 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.07ms)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.3ms | Allocations: 2058)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-13 17:56:16 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 1759)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-01-13 17:56:21 -0500
+Processing by SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 184)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-13 17:56:21 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.03ms)
+Completed 404 Not Found in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 346)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-01-13 17:56:24 -0500
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers]   [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:6:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.05ms)
+Completed 200 OK in 297ms (Views: 2.3ms | ActiveRecord: 0.4ms | Allocations: 2098)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-13 17:56:25 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.63ms)
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 0.5ms | Allocations: 2072)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-13 17:56:25 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 1743)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-01-13 17:56:27 -0500
+Processing by SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 176)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-13 17:56:28 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 404 Not Found in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 346)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-14 17:47:45 -0500
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+Started GET "/logo.png" for 127.0.0.1 at 2022-01-14 17:47:45 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/logo.png"):
+  
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 404 Not Found in 23ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 9412)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-14 17:47:48 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 404 Not Found in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 279)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-14 17:47:52 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 404 Not Found in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 279)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-01-14 17:47:59 -0500
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers]   [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:6:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (21.54ms)
+Completed 200 OK in 328ms (Views: 29.6ms | ActiveRecord: 1.7ms | Allocations: 15875)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-14 17:48:19 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (4.57ms)
+Completed 200 OK in 9ms (Views: 5.0ms | ActiveRecord: 0.9ms | Allocations: 2202)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-01-14 17:48:52 -0500
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Completed 204 No Content in 8ms (ActiveRecord: 0.0ms | Allocations: 3404)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-14 17:48:57 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 404 Not Found in 11ms (Views: 1.8ms | ActiveRecord: 0.3ms | Allocations: 3023)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-01-14 17:49:02 -0500
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers]   [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:6:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (16.5ms)
+Completed 200 OK in 322ms (Views: 26.7ms | ActiveRecord: 2.5ms | Allocations: 15915)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-14 17:49:24 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Bua Thai Ramen & Robata Grill", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-o/14/ed/3c/43/front-store.jpg", "user_id"=>1, "place"=>{"name"=>"Bua Thai Ramen & Robata Grill", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-o/14/ed/3c/43/front-store.jpg", "user_id"=>1}}
+[31mUnpermitted parameter: :place[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (3.3ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Bua Thai Ramen & Robata Grill"], ["location", "New York City"], ["image", "https://media-cdn.tripadvisor.com/media/photo-o/14/ed/3c/43/front-store.jpg"], ["user_id", 1], ["created_at", "2022-01-14 22:49:24.279373"], ["updated_at", "2022-01-14 22:49:24.279373"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.48ms)
+Completed 201 Created in 14ms (Views: 1.2ms | ActiveRecord: 4.5ms | Allocations: 3206)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-14 17:49:29 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Pure Thai Cookhouse", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-w/0c/c4/9f/bf/ratchaburi-crab-pork.jpg", "user_id"=>1, "place"=>{"name"=>"Pure Thai Cookhouse", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-w/0c/c4/9f/bf/ratchaburi-crab-pork.jpg", "user_id"=>1}}
+[31mUnpermitted parameter: :place[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (1.1ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Pure Thai Cookhouse"], ["location", "New York City"], ["image", "https://media-cdn.tripadvisor.com/media/photo-w/0c/c4/9f/bf/ratchaburi-crab-pork.jpg"], ["user_id", 1], ["created_at", "2022-01-14 22:49:29.690328"], ["updated_at", "2022-01-14 22:49:29.690328"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 201 Created in 15ms (Views: 1.2ms | ActiveRecord: 2.7ms | Allocations: 2765)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-14 17:49:38 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Daniel", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-o/0b/7d/2c/41/dinner-at-daniel.jpg", "user_id"=>1, "place"=>{"name"=>"Daniel", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-o/0b/7d/2c/41/dinner-at-daniel.jpg", "user_id"=>1}}
+[31mUnpermitted parameter: :place[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (1.0ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Daniel"], ["location", "New York City"], ["image", "https://media-cdn.tripadvisor.com/media/photo-o/0b/7d/2c/41/dinner-at-daniel.jpg"], ["user_id", 1], ["created_at", "2022-01-14 22:49:38.761659"], ["updated_at", "2022-01-14 22:49:38.761659"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.71ms)
+Completed 201 Created in 15ms (Views: 1.7ms | ActiveRecord: 2.7ms | Allocations: 2744)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-14 17:49:54 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Patchanka", "location"=>"Paris", "image"=>"https://media-cdn.tripadvisor.com/media/photo-w/12/36/35/09/la-salle-de-patchanka.jpg", "user_id"=>1, "place"=>{"name"=>"Patchanka", "location"=>"Paris", "image"=>"https://media-cdn.tripadvisor.com/media/photo-w/12/36/35/09/la-salle-de-patchanka.jpg", "user_id"=>1}}
+[31mUnpermitted parameter: :place[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (1.0ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Patchanka"], ["location", "Paris"], ["image", "https://media-cdn.tripadvisor.com/media/photo-w/12/36/35/09/la-salle-de-patchanka.jpg"], ["user_id", 1], ["created_at", "2022-01-14 22:49:54.553648"], ["updated_at", "2022-01-14 22:49:54.553648"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.61ms)
+Completed 201 Created in 16ms (Views: 1.8ms | ActiveRecord: 3.3ms | Allocations: 2746)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-14 17:50:05 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (6.08ms)
+Completed 200 OK in 10ms (Views: 6.9ms | ActiveRecord: 0.6ms | Allocations: 2670)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-14 17:50:05 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.6ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.4ms | Allocations: 2262)
+
+
+Started DELETE "/places/15" for 127.0.0.1 at 2022-01-14 17:50:14 -0500
+Processing by PlacesController#destroy as */*
+  Parameters: {"id"=>"15"}
+  [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:34:in `find_place'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/places_controller.rb:27:in `destroy'
+  [1m[36mPlace Destroy (2.2ms)[0m  [1m[31mDELETE FROM "places" WHERE "places"."id" = ?[0m  [["id", 15]]
+  ↳ app/controllers/places_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/places_controller.rb:27:in `destroy'
+Completed 204 No Content in 12ms (ActiveRecord: 4.0ms | Allocations: 1848)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-14 17:50:17 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.75ms)
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 0.5ms | Allocations: 2452)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-14 17:50:17 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.54ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.2ms | Allocations: 2141)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-01-14 17:50:34 -0500
+Processing by SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 176)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-14 17:50:35 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 404 Not Found in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 342)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 13:35:47 -0500
+  [1m[35m (6.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Started GET "/logo.png" for 127.0.0.1 at 2022-01-18 13:35:47 -0500
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/logo.png"):
+  
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 404 Not Found in 19ms (Views: 2.6ms | ActiveRecord: 0.3ms | Allocations: 6297)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-01-18 13:35:51 -0500
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers]   [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:6:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (24.13ms)
+Completed 200 OK in 329ms (Views: 32.4ms | ActiveRecord: 1.6ms | Allocations: 16316)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 13:35:54 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = ?[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (6.84ms)
+Completed 200 OK in 11ms (Views: 7.4ms | ActiveRecord: 0.7ms | Allocations: 2583)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 13:35:54 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.55ms)
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 2193)
+
+
+  [1m[35m (1126.4ms)[0m  [1m[35mCREATE DATABASE "travel-app-explor" ENCODING = 'utf8'[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE DATABASE "travel-app-explor" ENCODING = 'utf8'[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "places" CASCADE[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "places" ("id" bigserial primary key, "name" character varying, "location" character varying, "image" character varying, "user_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "first_name" character varying, "last_name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (5.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220113162213)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220113162202);
+
+[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (5.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-01-18 18:39:04.048747"], ["updated_at", "2022-01-18 18:39:04.048747"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "9317592212a0df246f286e82fa3183c4b8df5399"], ["created_at", "2022-01-18 18:39:04.058967"], ["updated_at", "2022-01-18 18:39:04.058967"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "places" CASCADE[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "places" ("id" bigserial primary key, "name" character varying, "location" character varying, "image" character varying, "user_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "first_name" character varying, "last_name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-01-18 18:39:04.084714"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "yuyi"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "yuyi"], ["email", "yuyi365@gmail.com"], ["password_digest", "$2a$12$rwAm0kBaLyKiweodOmCXvukkEieM6QNBlomz4nWHJyfYW2lVPT6O."], ["first_name", "Yuyi"], ["last_name", "Li"], ["created_at", "2022-01-18 18:39:04.425197"], ["updated_at", "2022-01-18 18:39:04.425197"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "admin"], ["email", "admin@gmail.com"], ["password_digest", "$2a$12$uTwuBiItYncrGF36Z4o6JuyEIjxUuFEgYhWLQCvcXxLPAgYvkn/Sa"], ["first_name", "Admin"], ["last_name", "User"], ["created_at", "2022-01-18 18:39:04.694564"], ["updated_at", "2022-01-18 18:39:04.694564"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Create (1.2ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "The Metropolitan Museum of Art"], ["location", "New York City"], ["image", "https://www.metmuseum.org/ghidorah/assets/images/meta-image.jpg"], ["user_id", 1], ["created_at", "2022-01-18 18:39:04.714293"], ["updated_at", "2022-01-18 18:39:04.714293"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Create (0.2ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Flatiron School"], ["location", "New York City"], ["image", "https://images.ctfassets.net/hkpf2qd2vxgx/1dlklFz5B6DlSJ0Ks2ZVgs/84a7522031a287cdc8ff0579ea12bdbb/8"], ["user_id", 1], ["created_at", "2022-01-18 18:39:04.718452"], ["updated_at", "2022-01-18 18:39:04.718452"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Create (0.2ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Museum of Modern Art"], ["location", "New York City"], ["image", "https://www.moma.org/d/p/sa/maximum/moma_renovation_and_expansion.jpg"], ["user_id", 2], ["created_at", "2022-01-18 18:39:04.721464"], ["updated_at", "2022-01-18 18:39:04.721464"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+Started GET "/me" for 127.0.0.1 at 2022-01-18 13:40:09 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (20.33ms)
+Completed 200 OK in 62ms (Views: 29.4ms | ActiveRecord: 14.0ms | Allocations: 21418)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 13:40:09 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.26ms)
+Completed 200 OK in 3ms (Views: 1.3ms | ActiveRecord: 0.5ms | Allocations: 1731)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 13:40:22 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (3.93ms)
+Completed 200 OK in 9ms (Views: 4.3ms | ActiveRecord: 1.2ms | Allocations: 2020)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 13:40:32 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (4.81ms)
+Completed 200 OK in 10ms (Views: 5.2ms | ActiveRecord: 1.3ms | Allocations: 2016)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 13:40:32 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.27ms)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.5ms | Allocations: 1703)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 13:40:35 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (1.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (6.63ms)
+Completed 200 OK in 12ms (Views: 6.0ms | ActiveRecord: 2.0ms | Allocations: 1996)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 13:44:49 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (7.55ms)
+Completed 200 OK in 48ms (Views: 8.2ms | ActiveRecord: 1.0ms | Allocations: 1987)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 13:45:19 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (26.59ms)
+Completed 200 OK in 39ms (Views: 27.0ms | ActiveRecord: 0.9ms | Allocations: 1989)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 13:45:19 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 11ms (Views: 1.8ms | ActiveRecord: 2.5ms | Allocations: 1678)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 13:46:01 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.83ms)
+Completed 200 OK in 17ms (Views: 6.1ms | ActiveRecord: 1.7ms | Allocations: 1677)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 13:46:06 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.9ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (6.96ms)
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 1.2ms | Allocations: 1998)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 13:46:08 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.62ms)
+Completed 200 OK in 17ms (Views: 10.3ms | ActiveRecord: 1.0ms | Allocations: 1990)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 13:46:08 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 4ms (Views: 1.6ms | ActiveRecord: 0.5ms | Allocations: 1683)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 13:48:41 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.52ms)
+Completed 200 OK in 15ms (Views: 3.6ms | ActiveRecord: 0.7ms | Allocations: 1693)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 13:49:11 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.69ms)
+Completed 200 OK in 6ms (Views: 2.6ms | ActiveRecord: 0.6ms | Allocations: 1689)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 13:50:13 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (6.43ms)
+Completed 200 OK in 15ms (Views: 7.0ms | ActiveRecord: 0.8ms | Allocations: 1988)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 13:50:14 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.3ms | Allocations: 1689)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 13:51:06 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.54ms)
+Completed 200 OK in 9ms (Views: 3.7ms | ActiveRecord: 0.8ms | Allocations: 1687)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 13:51:29 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.54ms)
+Completed 200 OK in 41ms (Views: 6.1ms | ActiveRecord: 1.6ms | Allocations: 1994)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 13:51:35 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.83ms)
+Completed 200 OK in 6ms (Views: 3.2ms | ActiveRecord: 0.7ms | Allocations: 1986)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 13:51:35 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 0.9ms | Allocations: 1676)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 13:53:41 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.63ms)
+Completed 200 OK in 12ms (Views: 6.8ms | ActiveRecord: 1.1ms | Allocations: 1675)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 13:54:05 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.34ms)
+Completed 200 OK in 5ms (Views: 2.0ms | ActiveRecord: 0.3ms | Allocations: 1675)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 13:54:07 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.4ms | Allocations: 1669)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 13:56:16 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (3.34ms)
+Completed 200 OK in 13ms (Views: 4.0ms | ActiveRecord: 0.6ms | Allocations: 2002)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 13:56:16 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.46ms)
+Completed 200 OK in 7ms (Views: 3.9ms | ActiveRecord: 0.7ms | Allocations: 1677)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 13:56:23 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 200 OK in 6ms (Views: 2.3ms | ActiveRecord: 0.5ms | Allocations: 1683)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 13:58:58 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.61ms)
+Completed 200 OK in 13ms (Views: 3.4ms | ActiveRecord: 0.7ms | Allocations: 1685)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 13:59:06 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 1680)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 13:59:49 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.65ms)
+Completed 200 OK in 16ms (Views: 6.5ms | ActiveRecord: 1.0ms | Allocations: 1669)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:02:26 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.53ms)
+Completed 200 OK in 27ms (Views: 8.5ms | ActiveRecord: 1.7ms | Allocations: 1689)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 14:02:28 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.65ms)
+Completed 200 OK in 6ms (Views: 2.7ms | ActiveRecord: 1.7ms | Allocations: 1986)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:02:28 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Completed 200 OK in 6ms (Views: 2.5ms | ActiveRecord: 0.8ms | Allocations: 1687)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:04:05 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (2.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.45ms)
+Completed 200 OK in 39ms (Views: 13.5ms | ActiveRecord: 3.1ms | Allocations: 1681)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:05:00 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (16.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.27ms)
+Completed 200 OK in 54ms (Views: 11.1ms | ActiveRecord: 17.5ms | Allocations: 1681)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:06:35 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.8ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.81ms)
+Completed 200 OK in 31ms (Views: 7.3ms | ActiveRecord: 1.8ms | Allocations: 1681)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:06:55 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.51ms)
+Completed 200 OK in 16ms (Views: 3.3ms | ActiveRecord: 0.9ms | Allocations: 1671)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:10:02 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.65ms)
+Completed 200 OK in 14ms (Views: 3.6ms | ActiveRecord: 0.7ms | Allocations: 1687)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:10:46 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (1.0ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.44ms)
+Completed 200 OK in 38ms (Views: 10.8ms | ActiveRecord: 6.2ms | Allocations: 1693)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:11:36 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.8ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.74ms)
+Completed 200 OK in 32ms (Views: 11.7ms | ActiveRecord: 2.3ms | Allocations: 1689)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:14:39 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.47ms)
+Completed 200 OK in 14ms (Views: 2.9ms | ActiveRecord: 6.4ms | Allocations: 1683)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 14:14:50 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.69ms)
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 0.6ms | Allocations: 1993)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:14:50 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 13ms (Views: 8.5ms | ActiveRecord: 1.2ms | Allocations: 1689)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:15:45 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.51ms)
+Completed 200 OK in 32ms (Views: 15.1ms | ActiveRecord: 1.4ms | Allocations: 1675)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:16:14 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.54ms)
+Completed 200 OK in 9ms (Views: 3.4ms | ActiveRecord: 0.8ms | Allocations: 1673)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:16:25 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.64ms)
+Completed 200 OK in 16ms (Views: 8.5ms | ActiveRecord: 1.4ms | Allocations: 1675)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:16:37 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.85ms)
+Completed 200 OK in 22ms (Views: 8.9ms | ActiveRecord: 1.7ms | Allocations: 1677)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:16:45 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.58ms)
+Completed 200 OK in 21ms (Views: 14.2ms | ActiveRecord: 2.3ms | Allocations: 1689)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:17:04 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (1.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.61ms)
+Completed 200 OK in 62ms (Views: 50.8ms | ActiveRecord: 2.2ms | Allocations: 1690)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 14:17:22 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (9.07ms)
+Completed 200 OK in 17ms (Views: 9.8ms | ActiveRecord: 0.9ms | Allocations: 1983)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:17:22 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (1.9ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 200 OK in 18ms (Views: 8.0ms | ActiveRecord: 2.3ms | Allocations: 1687)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 14:17:22 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.76ms)
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.7ms | Allocations: 1998)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:17:23 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.3ms | Allocations: 1687)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 14:19:08 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.91ms)
+Completed 200 OK in 19ms (Views: 8.0ms | ActiveRecord: 0.8ms | Allocations: 1988)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:19:08 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (52.0ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 200 OK in 62ms (Views: 4.2ms | ActiveRecord: 52.4ms | Allocations: 1671)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:19:37 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.55ms)
+Completed 200 OK in 14ms (Views: 3.5ms | ActiveRecord: 0.7ms | Allocations: 1679)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:20:01 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.56ms)
+Completed 200 OK in 23ms (Views: 5.2ms | ActiveRecord: 1.1ms | Allocations: 1677)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 14:21:04 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (6.93ms)
+Completed 200 OK in 20ms (Views: 7.5ms | ActiveRecord: 1.5ms | Allocations: 1980)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:21:04 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.5ms)
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 0.5ms | Allocations: 1687)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:21:29 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.58ms)
+Completed 200 OK in 26ms (Views: 6.3ms | ActiveRecord: 2.7ms | Allocations: 1675)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:22:00 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.51ms)
+Completed 200 OK in 17ms (Views: 3.4ms | ActiveRecord: 4.2ms | Allocations: 1687)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:22:44 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.8ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.8ms)
+Completed 200 OK in 26ms (Views: 9.4ms | ActiveRecord: 3.0ms | Allocations: 1677)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:23:16 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.58ms)
+Completed 200 OK in 31ms (Views: 6.6ms | ActiveRecord: 1.0ms | Allocations: 1686)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:25:24 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.76ms)
+Completed 200 OK in 14ms (Views: 7.4ms | ActiveRecord: 1.1ms | Allocations: 1679)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:25:46 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 5ms (Views: 2.2ms | ActiveRecord: 0.4ms | Allocations: 1675)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:25:57 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (22.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.79ms)
+Completed 200 OK in 28ms (Views: 3.8ms | ActiveRecord: 22.3ms | Allocations: 1675)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:26:15 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.71ms)
+Completed 200 OK in 15ms (Views: 3.8ms | ActiveRecord: 1.2ms | Allocations: 1679)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 14:26:23 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.35ms)
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.3ms | Allocations: 1685)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 14:27:03 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.96ms)
+Completed 200 OK in 11ms (Views: 6.0ms | ActiveRecord: 1.3ms | Allocations: 1994)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-01-18 14:27:14 -0500
+Processing by SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 179)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 14:27:15 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 404 Not Found in 18ms (Views: 16.9ms | ActiveRecord: 0.0ms | Allocations: 658)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 15:50:34 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 404 Not Found in 27ms (Views: 1.8ms | ActiveRecord: 9.7ms | Allocations: 6139)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-01-18 15:51:09 -0500
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers]   [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:6:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (27.43ms)
+Completed 200 OK in 342ms (Views: 28.1ms | ActiveRecord: 18.0ms | Allocations: 16005)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 15:51:44 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (4.04ms)
+Completed 200 OK in 18ms (Views: 4.5ms | ActiveRecord: 2.7ms | Allocations: 2118)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 15:51:44 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.4ms | Allocations: 1730)
+
+
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (5.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1922115621932337195)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (2.9ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "development"], ["updated_at", "2022-01-18 21:18:57.047652"], ["key", "environment"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1922115621932337195)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (42.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "travel-app-explor"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "travel-app-explor"[0m
+  [1m[35m (130.3ms)[0m  [1m[35mCREATE DATABASE "travel-app-explor" ENCODING = 'utf8'[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE DATABASE "travel-app-explor" ENCODING = 'utf8'[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "places" CASCADE[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "places" ("id" bigserial primary key, "name" character varying, "location" character varying, "image" character varying, "user_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "first_name" character varying, "last_name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220113162213)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220113162202);
+
+[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-01-18 21:19:03.993031"], ["updated_at", "2022-01-18 21:19:03.993031"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "b32d7bcfbfa17ca9bcaa4d1d91beae70125f091e"], ["created_at", "2022-01-18 21:19:03.999130"], ["updated_at", "2022-01-18 21:19:03.999130"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "places" CASCADE[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "places" ("id" bigserial primary key, "name" character varying, "location" character varying, "image" character varying, "user_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "first_name" character varying, "last_name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-01-18 21:19:04.027654"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "yuyi"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "yuyi"], ["email", "yuyi365@gmail.com"], ["password_digest", "$2a$12$o./A7j/2fSAGR9n8a9bB.OvWKPgM6zY0b2xYh1RdqLYBHkdc1dDBy"], ["first_name", "Yuyi"], ["last_name", "Li"], ["created_at", "2022-01-18 21:19:04.383241"], ["updated_at", "2022-01-18 21:19:04.383241"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "admin"], ["email", "admin@gmail.com"], ["password_digest", "$2a$12$7x9Ldj8.Ga2Al16DHPLmvetkSpiW5gHnG3DsIKsge.F9WaXa6r4jG"], ["first_name", "Admin"], ["last_name", "User"], ["created_at", "2022-01-18 21:19:04.654554"], ["updated_at", "2022-01-18 21:19:04.654554"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1922115621932337195)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220118212036)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "first_name" character varying, "last_name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1922115621932337195)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1922115621932337195)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220118212036)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "first_name" character varying, "last_name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1922115621932337195)[0m
+  [1m[35m (9.3ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35m (3.4ms)[0m  [1m[35mDROP TABLE "places"[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1922115621932337195)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220118212036)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "first_name" character varying, "last_name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220118212036"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePlace (20220118212047)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "places" ("id" bigserial primary key, "name" character varying, "location" character varying, "image" character varying, "type" character varying, "user_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220118212047"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.0ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "development"], ["updated_at", "2022-01-18 21:23:48.306557"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1922115621932337195)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (33.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "travel-app-explor"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "travel-app-explor"[0m
+  [1m[35m (103.8ms)[0m  [1m[35mCREATE DATABASE "travel-app-explor" ENCODING = 'utf8'[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE DATABASE "travel-app-explor" ENCODING = 'utf8'[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "places" CASCADE[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "places" ("id" bigserial primary key, "name" character varying, "location" character varying, "image" character varying, "type" character varying, "user_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "first_name" character varying, "last_name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220118212047)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220118212036);
+
+[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-01-18 21:24:00.075869"], ["updated_at", "2022-01-18 21:24:00.075869"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "d62da7c1eca49dcde0d4386b765b191b1477c9b9"], ["created_at", "2022-01-18 21:24:00.081760"], ["updated_at", "2022-01-18 21:24:00.081760"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (1.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "places" CASCADE[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "places" ("id" bigserial primary key, "name" character varying, "location" character varying, "image" character varying, "type" character varying, "user_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "first_name" character varying, "last_name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-01-18 21:24:00.110016"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "yuyi"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "yuyi"], ["email", "yuyi365@gmail.com"], ["password_digest", "$2a$12$IUG.WUspOzcGAK5DqdYQju3OynldFHk8..Lp8zN3Z87ucmxDsWSTm"], ["first_name", "Yuyi"], ["last_name", "Li"], ["created_at", "2022-01-18 21:24:00.447895"], ["updated_at", "2022-01-18 21:24:00.447895"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "admin"], ["email", "admin@gmail.com"], ["password_digest", "$2a$12$fI8S/S5yEuqNrslFUtJ2aeL2oa27IIFyV07EWCvWTN071gXoSNuZ6"], ["first_name", "Admin"], ["last_name", "User"], ["created_at", "2022-01-18 21:24:00.717025"], ["updated_at", "2022-01-18 21:24:00.717025"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (7.1ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35m (3.7ms)[0m  [1m[35mDROP TABLE "places"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1922115621932337195)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.5ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "development"], ["updated_at", "2022-01-18 21:26:54.883901"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1922115621932337195)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (32.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "travel-app-explor"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "travel-app-explor"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "travel-app-explor"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "travel-app-explor"[0m
+  [1m[35m (100.0ms)[0m  [1m[35mCREATE DATABASE "travel-app-explor" ENCODING = 'utf8'[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE DATABASE "travel-app-explor" ENCODING = 'utf8'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220118212047)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220118212036);
+
+[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-01-18 21:27:46.864423"], ["updated_at", "2022-01-18 21:27:46.864423"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "c930eec32fa52221cc019ec9bc55a180b5970b74"], ["created_at", "2022-01-18 21:27:46.869278"], ["updated_at", "2022-01-18 21:27:46.869278"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-01-18 21:27:46.887761"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE "places"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1922115621932337195)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20220118212906)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "first_name" character varying, "last_name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220118212906"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePlaces (20220118212916)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "places" ("id" bigserial primary key, "name" character varying, "location" character varying, "image" character varying, "category" character varying, "user_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220118212916"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (1.1ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "development"], ["updated_at", "2022-01-18 21:29:43.168007"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(1922115621932337195)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (18.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "travel-app-explor"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "travel-app-explor"[0m
+  [1m[35m (107.1ms)[0m  [1m[35mCREATE DATABASE "travel-app-explor" ENCODING = 'utf8'[0m
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE DATABASE "travel-app-explor" ENCODING = 'utf8'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "places" CASCADE[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "places" ("id" bigserial primary key, "name" character varying, "location" character varying, "image" character varying, "category" character varying, "user_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "first_name" character varying, "last_name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220118212916)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220118212906);
+
+[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-01-18 21:29:52.931060"], ["updated_at", "2022-01-18 21:29:52.931060"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "cdae4e07f0256864f14e7bdd11b190a627ec7ee6"], ["created_at", "2022-01-18 21:29:52.937755"], ["updated_at", "2022-01-18 21:29:52.937755"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "places" CASCADE[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "places" ("id" bigserial primary key, "name" character varying, "location" character varying, "image" character varying, "category" character varying, "user_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "first_name" character varying, "last_name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-01-18 21:29:52.972426"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "yuyi"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "yuyi"], ["email", "yuyi365@gmail.com"], ["password_digest", "$2a$12$/Em5axRo042ZudE/6JkB7.X5//VPBrFQ/pNa8ZqtGpG9rg8Dz6K1K"], ["first_name", "Yuyi"], ["last_name", "Li"], ["created_at", "2022-01-18 21:29:53.312156"], ["updated_at", "2022-01-18 21:29:53.312156"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "admin"], ["email", "admin@gmail.com"], ["password_digest", "$2a$12$CTcsLFMtBUD36ygVPDkXMeRgtMXBynD7s2X3miaNVzm5uvkImzQhC"], ["first_name", "Admin"], ["last_name", "User"], ["created_at", "2022-01-18 21:29:53.579790"], ["updated_at", "2022-01-18 21:29:53.579790"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "yuyi"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/me" for 127.0.0.1 at 2022-01-18 16:31:29 -0500
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (3.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (19.81ms)
+Completed 200 OK in 58ms (Views: 23.8ms | ActiveRecord: 12.3ms | Allocations: 17837)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 16:31:29 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.04ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.4ms | Allocations: 1460)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-01-18 16:31:38 -0500
+Processing by SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 190)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 16:31:38 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 404 Not Found in 4ms (Views: 3.1ms | ActiveRecord: 0.0ms | Allocations: 671)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-01-18 16:31:41 -0500
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (15.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers]   [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:6:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.74ms)
+Completed 200 OK in 323ms (Views: 3.0ms | ActiveRecord: 15.4ms | Allocations: 1899)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 16:31:44 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.47ms)
+Completed 200 OK in 6ms (Views: 2.4ms | ActiveRecord: 1.1ms | Allocations: 1744)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 16:31:44 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.05ms)
+Completed 200 OK in 6ms (Views: 1.1ms | ActiveRecord: 1.2ms | Allocations: 1427)
+
+
+  [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mPlace Load (0.9ms)[0m  [1m[34mSELECT "places".* FROM "places" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE DATABASE "travel-app-explor" ENCODING = 'utf8'[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE DATABASE "travel-app-explor" ENCODING = 'utf8'[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (3.0ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "development"], ["updated_at", "2022-01-18 21:35:24.629109"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (8352.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "travel-app-explor"[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE DATABASE "travel-app-explor" ENCODING = 'utf8'[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE DATABASE "travel-app-explor" ENCODING = 'utf8'[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35mSQL (0.6ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (3.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "places" CASCADE[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "places" ("id" bigserial primary key, "name" character varying, "location" character varying, "image" character varying, "category" character varying, "user_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "first_name" character varying, "last_name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "places" CASCADE[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "places" ("id" bigserial primary key, "name" character varying, "location" character varying, "image" character varying, "category" character varying, "user_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (7.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "first_name" character varying, "last_name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-01-18 21:38:06.066192"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "yuyi"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "yuyi"], ["email", "yuyi365@gmail.com"], ["password_digest", "$2a$12$/Kc8Z0Yy6JOaI1xyHYAflORzVpcezmMoJ6t1bkWWHZeAMi02m6zN2"], ["first_name", "Yuyi"], ["last_name", "Li"], ["created_at", "2022-01-18 21:38:06.408445"], ["updated_at", "2022-01-18 21:38:06.408445"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "admin"], ["email", "admin@gmail.com"], ["password_digest", "$2a$12$JyEy2qt8rucpnFQJzoDcCennLoOTq.sa4GyXVdJ2Is.Q4zXVRWv7e"], ["first_name", "Admin"], ["last_name", "User"], ["created_at", "2022-01-18 21:38:06.678988"], ["updated_at", "2022-01-18 21:38:06.678988"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Create (1.2ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "The Metropolitan Museum of Art"], ["location", "New York City"], ["image", "https://www.metmuseum.org/ghidorah/assets/images/meta-image.jpg"], ["category", "attractions"], ["user_id", 1], ["created_at", "2022-01-18 21:38:06.697721"], ["updated_at", "2022-01-18 21:38:06.697721"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Create (0.3ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Clamato"], ["location", "Paris"], ["image", "https://www.sugarednspiced.com/wp-content/uploads/2014/06/L1103947.jpg"], ["category", "restaurants"], ["user_id", 1], ["created_at", "2022-01-18 21:38:06.702108"], ["updated_at", "2022-01-18 21:38:06.702108"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Create (0.2ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Hilton Berlin"], ["location", "Berlin"], ["image", "https://www.sugarednspiced.com/wp-content/uploads/2014/06/L1103947.jpg"], ["category", "hotels"], ["user_id", 1], ["created_at", "2022-01-18 21:38:06.705232"], ["updated_at", "2022-01-18 21:38:06.705232"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Create (0.2ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Flatiron School"], ["location", "New York City"], ["image", "https://images.ctfassets.net/hkpf2qd2vxgx/1dlklFz5B6DlSJ0Ks2ZVgs/84a7522031a287cdc8ff0579ea12bdbb/8"], ["category", "attractions"], ["user_id", 1], ["created_at", "2022-01-18 21:38:06.708097"], ["updated_at", "2022-01-18 21:38:06.708097"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Create (0.3ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Museum of Modern Art"], ["location", "New York City"], ["image", "https://www.moma.org/d/p/sa/maximum/moma_renovation_and_expansion.jpg"], ["category", "attractions"], ["user_id", 2], ["created_at", "2022-01-18 21:38:06.713578"], ["updated_at", "2022-01-18 21:38:06.713578"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/me" for 127.0.0.1 at 2022-01-18 16:38:24 -0500
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (35.66ms)
+Completed 200 OK in 83ms (Views: 43.5ms | ActiveRecord: 12.3ms | Allocations: 22133)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 16:38:24 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.44ms)
+Completed 200 OK in 5ms (Views: 2.1ms | ActiveRecord: 0.6ms | Allocations: 1987)
+
+
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.8ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "development"], ["updated_at", "2022-01-18 21:42:43.467538"], ["key", "environment"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (27.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "travel-app-explor"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "travel-app-explor"[0m
+  [1m[35m (105.7ms)[0m  [1m[35mCREATE DATABASE "travel-app-explor" ENCODING = 'utf8'[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE DATABASE "travel-app-explor" ENCODING = 'utf8'[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "places" CASCADE[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "places" ("id" bigserial primary key, "name" character varying, "location" character varying, "image" character varying, "category" character varying, "user_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "first_name" character varying, "last_name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220118212916)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20220118212906);
+
+[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-01-18 21:42:47.081370"], ["updated_at", "2022-01-18 21:42:47.081370"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "cdae4e07f0256864f14e7bdd11b190a627ec7ee6"], ["created_at", "2022-01-18 21:42:47.087300"], ["updated_at", "2022-01-18 21:42:47.087300"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (2.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "places" CASCADE[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "places" ("id" bigserial primary key, "name" character varying, "location" character varying, "image" character varying, "category" character varying, "user_id" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "first_name" character varying, "last_name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = $1, "updated_at" = $2 WHERE "ar_internal_metadata"."key" = $3[0m  [["value", "test"], ["updated_at", "2022-01-18 21:42:47.115437"], ["key", "environment"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "yuyi"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "yuyi"], ["email", "yuyi365@gmail.com"], ["password_digest", "$2a$12$TEUUrWNfhxyYu./iSE3OrujTYkVUotoGEOSP14/detgslOYSV7uF."], ["first_name", "Yuyi"], ["last_name", "Li"], ["created_at", "2022-01-18 21:42:47.465228"], ["updated_at", "2022-01-18 21:42:47.465228"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "admin"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "admin"], ["email", "admin@gmail.com"], ["password_digest", "$2a$12$p9EmFNYw5Ur1HD8ycvztXOwbRni6cHH9L3b028A.jsMcoX7i1rCpW"], ["first_name", "Admin"], ["last_name", "User"], ["created_at", "2022-01-18 21:42:47.735451"], ["updated_at", "2022-01-18 21:42:47.735451"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Create (1.3ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "The Metropolitan Museum of Art"], ["location", "New York City"], ["image", "https://www.metmuseum.org/ghidorah/assets/images/meta-image.jpg"], ["category", "attraction"], ["user_id", 1], ["created_at", "2022-01-18 21:42:47.756520"], ["updated_at", "2022-01-18 21:42:47.756520"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Create (0.3ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Clamato"], ["location", "Paris"], ["image", "https://www.sugarednspiced.com/wp-content/uploads/2014/06/L1103947.jpg"], ["category", "restaurant"], ["user_id", 1], ["created_at", "2022-01-18 21:42:47.760552"], ["updated_at", "2022-01-18 21:42:47.760552"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Create (0.3ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Hilton Berlin"], ["location", "Berlin"], ["image", "https://media-cdn.tripadvisor.com/media/photo-s/03/01/f2/5e/hilton-hotel-berlin.jpg"], ["category", "hotel"], ["user_id", 1], ["created_at", "2022-01-18 21:42:47.763447"], ["updated_at", "2022-01-18 21:42:47.763447"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Create (0.4ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Flatiron School"], ["location", "New York City"], ["image", "https://images.ctfassets.net/hkpf2qd2vxgx/1dlklFz5B6DlSJ0Ks2ZVgs/84a7522031a287cdc8ff0579ea12bdbb/8"], ["category", "attraction"], ["user_id", 1], ["created_at", "2022-01-18 21:42:47.766802"], ["updated_at", "2022-01-18 21:42:47.766802"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Create (0.3ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Museum of Modern Art"], ["location", "New York City"], ["image", "https://www.moma.org/d/p/sa/maximum/moma_renovation_and_expansion.jpg"], ["category", "attraction"], ["user_id", 2], ["created_at", "2022-01-18 21:42:47.770060"], ["updated_at", "2022-01-18 21:42:47.770060"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/me" for 127.0.0.1 at 2022-01-18 16:43:02 -0500
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (23.48ms)
+Completed 200 OK in 67ms (Views: 29.4ms | ActiveRecord: 12.9ms | Allocations: 22134)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 16:43:02 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.71ms)
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.6ms | Allocations: 1997)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 16:48:07 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.82ms)
+Completed 200 OK in 56ms (Views: 5.6ms | ActiveRecord: 0.9ms | Allocations: 1964)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 16:48:58 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (13.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.94ms)
+Completed 200 OK in 24ms (Views: 4.7ms | ActiveRecord: 13.5ms | Allocations: 1954)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 16:49:41 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.75ms)
+Completed 200 OK in 15ms (Views: 3.4ms | ActiveRecord: 3.4ms | Allocations: 1938)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 16:50:00 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.4ms)
+Completed 200 OK in 24ms (Views: 7.2ms | ActiveRecord: 2.1ms | Allocations: 1938)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 16:52:15 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (1.0ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.78ms)
+Completed 200 OK in 16ms (Views: 4.6ms | ActiveRecord: 1.4ms | Allocations: 1934)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 16:52:28 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.52ms)
+Completed 200 OK in 19ms (Views: 13.5ms | ActiveRecord: 0.5ms | Allocations: 1939)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 16:52:47 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (4.5ms)
+Completed 200 OK in 14ms (Views: 5.1ms | ActiveRecord: 4.7ms | Allocations: 2253)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 16:52:48 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.6ms)
+Completed 200 OK in 10ms (Views: 5.5ms | ActiveRecord: 0.8ms | Allocations: 1950)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 16:53:20 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.29ms)
+Completed 200 OK in 16ms (Views: 5.7ms | ActiveRecord: 1.5ms | Allocations: 1940)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 16:53:33 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.74ms)
+Completed 200 OK in 8ms (Views: 3.2ms | ActiveRecord: 0.7ms | Allocations: 1962)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 16:54:10 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.41ms)
+Completed 200 OK in 15ms (Views: 8.7ms | ActiveRecord: 1.0ms | Allocations: 1954)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 16:54:48 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.81ms)
+Completed 200 OK in 11ms (Views: 3.7ms | ActiveRecord: 0.7ms | Allocations: 1952)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 16:55:18 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.77ms)
+Completed 200 OK in 13ms (Views: 3.5ms | ActiveRecord: 0.9ms | Allocations: 1952)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 16:57:37 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.69ms)
+Completed 200 OK in 11ms (Views: 3.0ms | ActiveRecord: 0.9ms | Allocations: 1934)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 16:59:31 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.88ms)
+Completed 200 OK in 19ms (Views: 3.6ms | ActiveRecord: 0.8ms | Allocations: 1942)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 17:01:16 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.66ms)
+Completed 200 OK in 11ms (Views: 3.4ms | ActiveRecord: 2.9ms | Allocations: 1944)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 17:01:38 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.8ms)
+Completed 200 OK in 17ms (Views: 4.0ms | ActiveRecord: 1.4ms | Allocations: 1936)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 17:05:06 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.7ms)
+Completed 200 OK in 26ms (Views: 15.2ms | ActiveRecord: 1.2ms | Allocations: 1943)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 17:07:48 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.32ms)
+Completed 200 OK in 21ms (Views: 11.8ms | ActiveRecord: 1.2ms | Allocations: 1942)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 17:07:54 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.9ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.27ms)
+Completed 200 OK in 21ms (Views: 10.2ms | ActiveRecord: 1.4ms | Allocations: 1944)
+
+
+  [1m[36mPlace Load (1.5ms)[0m  [1m[34mSELECT "places".* FROM "places" ORDER BY "places"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/me" for 127.0.0.1 at 2022-01-18 17:11:27 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (23.03ms)
+Completed 200 OK in 63ms (Views: 26.6ms | ActiveRecord: 16.4ms | Allocations: 22126)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 17:11:28 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.8ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.49ms)
+Completed 200 OK in 7ms (Views: 2.7ms | ActiveRecord: 1.3ms | Allocations: 1987)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 17:19:49 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.92ms)
+Completed 200 OK in 54ms (Views: 4.2ms | ActiveRecord: 13.8ms | Allocations: 5110)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 17:20:12 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (1.0ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.45ms)
+Completed 200 OK in 38ms (Views: 23.7ms | ActiveRecord: 1.8ms | Allocations: 1960)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 17:20:17 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (1.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (8.2ms)
+Completed 200 OK in 13ms (Views: 7.7ms | ActiveRecord: 1.6ms | Allocations: 2271)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 17:20:17 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (2.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.32ms)
+Completed 200 OK in 31ms (Views: 17.7ms | ActiveRecord: 3.2ms | Allocations: 1940)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 17:20:50 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (1.0ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.89ms)
+Completed 200 OK in 46ms (Views: 31.8ms | ActiveRecord: 6.6ms | Allocations: 1949)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 17:21:35 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (14.61ms)
+Completed 200 OK in 50ms (Views: 11.1ms | ActiveRecord: 24.7ms | Allocations: 11336)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-18 17:21:35 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.63ms)
+Completed 200 OK in 10ms (Views: 3.4ms | ActiveRecord: 0.8ms | Allocations: 2029)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-01-18 17:22:29 -0500
+Processing by SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Completed 204 No Content in 3ms (ActiveRecord: 0.0ms | Allocations: 183)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-18 17:22:29 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 404 Not Found in 30ms (Views: 25.4ms | ActiveRecord: 0.0ms | Allocations: 665)
+
+

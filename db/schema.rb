@@ -10,12 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_13_162213) do
+ActiveRecord::Schema.define(version: 2022_01_18_212916) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "places", force: :cascade do |t|
     t.string "name"
     t.string "location"
     t.string "image"
+    t.string "category"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

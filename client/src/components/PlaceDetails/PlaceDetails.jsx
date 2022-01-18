@@ -30,6 +30,7 @@ const PlaceDetails = ({ place, selected, refProp, user }) => {
       location: place.ranking_geo,
       image: place.photo.images.large.url,
       user_id: user.id,
+      category: place.ranking_category,
     };
 
     fetch("/places", {

@@ -1,18 +1,32 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import PlacesCard from "./PlacesCard";
 import {
   Box,
   Typography,
-  Button,
-  Card,
-  CardMedia,
-  CardContent,
-  CardActions,
-  Chip,
   Grid,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
 } from "@material-ui/core";
 
+import useStyles from "./styles";
+
 const PlacesContainer = ({ savedPlaces, setSavedPlaces, handleDelete }) => {
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedPlace, setSelectedPlace] = useState("all");
+
+  const visiblePlaces = savedPlaces
+    .filter((place) => {
+      console.log(selectedCategory, place);
+      return selectedCategory === "all" || place.category === selectedCategory;
+    })
+    .filter((place) => {
+      return selectedPlace === "all" || place.location === selectedPlace;
+    });
+
+  const classes = useStyles();
+
   useEffect(() => {
     fetch("/places").then((res) => {
       if (res.ok) {
@@ -23,7 +37,7 @@ const PlacesContainer = ({ savedPlaces, setSavedPlaces, handleDelete }) => {
     });
   }, []);
 
-  const mapSavedPlaces = savedPlaces.map((myPlace) => {
+  const mapSavedPlaces = visiblePlaces.map((myPlace) => {
     return (
       <PlacesCard
         key={myPlace.id}
@@ -34,20 +48,55 @@ const PlacesContainer = ({ savedPlaces, setSavedPlaces, handleDelete }) => {
     );
   });
 
+  let placeArr = savedPlaces.map((myPlace) => {
+    return myPlace.location;
+  });
+  let unique = [...new Set(placeArr)];
+  const mapUniquePlaces = unique.map((place) => {
+    return <MenuItem value={place}>{place}</MenuItem>;
+  });
+
   return (
-    <Box
-      container
-      noValidate
-      sx={{ mt: 3 }}
-      style={{ justifyContent: "center" }}
-    >
-      <Typography gutterBottom variant="h5">
-        My Places
-      </Typography>
-      <Grid item xs={12} sx={{ mt: 3 }} align="center">
-        {mapSavedPlaces}
-      </Grid>
-    </Box>
+    <>
+      <Box
+        container
+        noValidate
+        sx={{ mt: 3 }}
+        style={{ justifyContent: "center", display: "flex" }}
+      >
+        <FormControl className={classes.formControl}>
+          <InputLabel>Type of Place</InputLabel>
+          <Select onChange={(e) => setSelectedCategory(e.target.value)}>
+            <MenuItem value="all">All</MenuItem>
+            <MenuItem value="restaurant">Restaurants</MenuItem>
+            <MenuItem value="hotel">Hotels</MenuItem>
+            <MenuItem value="attraction">Attractions</MenuItem>
+          </Select>
+        </FormControl>
+        <FormControl className={classes.formControl}>
+          <InputLabel>Location (City)</InputLabel>
+
+          <Select onChange={(e) => setSelectedPlace(e.target.value)}>
+            <MenuItem value="all">All</MenuItem>
+            {mapUniquePlaces}
+          </Select>
+        </FormControl>
+      </Box>
+
+      <Box
+        container
+        noValidate
+        sx={{ mt: 3 }}
+        style={{ justifyContent: "center" }}
+      >
+        <Typography gutterBottom variant="h5">
+          My Places
+        </Typography>
+        <Grid item xs={12} sx={{ mt: 3 }} align="center">
+          {mapSavedPlaces}
+        </Grid>
+      </Box>
+    </>
   );
 };
 

@@ -87,12 +87,12 @@ const PlacesContainer = ({ savedPlaces, setSavedPlaces, handleDelete }) => {
         container
         noValidate
         sx={{ mt: 3 }}
-        style={{ justifyContent: "center" }}
+        style={{ justifyContent: "center", display: "flex" }}
       >
-        <Typography gutterBottom variant="h5">
-          My Places
-        </Typography>
-        <Grid item xs={12} sx={{ mt: 3 }} align="center">
+        <Grid item xs={6} sx={{ mt: 3 }} align="center">
+          <Typography gutterBottom variant="h5">
+            My Places
+          </Typography>
           {mapSavedPlaces}
         </Grid>
       </Box>

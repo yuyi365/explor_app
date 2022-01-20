@@ -9885,3 +9885,1422 @@ Processing by UsersController#show as */*
 Completed 404 Not Found in 4ms (Views: 2.7ms | ActiveRecord: 0.0ms | Allocations: 663)
 
 
+Started GET "/logo.png" for 127.0.0.1 at 2022-01-19 12:38:08 -0500
+Started GET "/me" for 127.0.0.1 at 2022-01-19 12:38:08 -0500
+  [1m[35m (74.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/logo.png"):
+  
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 404 Not Found in 267ms (Views: 2.0ms | ActiveRecord: 243.9ms | Allocations: 6151)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-01-19 12:38:13 -0500
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (109.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers]   [1m[36mPlace Load (66.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:6:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (90.46ms)
+Completed 200 OK in 602ms (Views: 27.1ms | ActiveRecord: 291.9ms | Allocations: 18410)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-19 12:38:16 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (4.34ms)
+Completed 200 OK in 10ms (Views: 4.1ms | ActiveRecord: 1.3ms | Allocations: 4044)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-19 12:38:16 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.57ms)
+Completed 200 OK in 9ms (Views: 3.7ms | ActiveRecord: 1.6ms | Allocations: 3660)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-19 12:43:11 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (18.21ms)
+Completed 200 OK in 59ms (Views: 18.7ms | ActiveRecord: 1.9ms | Allocations: 3934)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-19 12:43:26 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (6.78ms)
+Completed 200 OK in 14ms (Views: 7.2ms | ActiveRecord: 1.3ms | Allocations: 3932)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-19 12:43:27 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.9ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.72ms)
+Completed 200 OK in 12ms (Views: 8.8ms | ActiveRecord: 1.3ms | Allocations: 3627)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-19 12:44:37 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (9.59ms)
+Completed 200 OK in 26ms (Views: 20.5ms | ActiveRecord: 0.8ms | Allocations: 3614)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-19 12:44:49 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.95ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.5ms | Allocations: 3628)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-19 12:45:06 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.85ms)
+Completed 200 OK in 7ms (Views: 4.4ms | ActiveRecord: 0.5ms | Allocations: 3613)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-19 12:45:22 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.53ms)
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.4ms | Allocations: 3623)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-19 12:47:10 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.9ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (11.86ms)
+Completed 200 OK in 18ms (Views: 12.0ms | ActiveRecord: 1.3ms | Allocations: 3926)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-19 12:47:10 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.3ms)
+Completed 200 OK in 29ms (Views: 8.5ms | ActiveRecord: 0.9ms | Allocations: 3607)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-19 12:47:51 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (1.0ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (40.05ms)
+Completed 200 OK in 46ms (Views: 40.1ms | ActiveRecord: 1.5ms | Allocations: 3932)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-19 12:49:58 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (7.3ms)
+Completed 200 OK in 31ms (Views: 8.2ms | ActiveRecord: 3.0ms | Allocations: 3922)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-19 12:52:24 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (8.41ms)
+Completed 200 OK in 18ms (Views: 9.0ms | ActiveRecord: 1.2ms | Allocations: 3918)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-01-19 12:54:04 -0500
+Processing by SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Completed 204 No Content in 3ms (ActiveRecord: 0.0ms | Allocations: 171)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-19 12:54:05 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 404 Not Found in 2ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 346)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-01-19 12:57:23 -0500
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers]   [1m[36mPlace Load (0.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:6:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (15.01ms)
+Completed 200 OK in 301ms (Views: 15.3ms | ActiveRecord: 1.6ms | Allocations: 3957)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-19 12:57:56 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (10.72ms)
+Completed 200 OK in 22ms (Views: 11.0ms | ActiveRecord: 0.9ms | Allocations: 3932)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-19 12:57:56 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.79ms)
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.4ms | Allocations: 3605)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-19 12:58:30 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (7.5ms)
+Completed 200 OK in 29ms (Views: 8.5ms | ActiveRecord: 1.1ms | Allocations: 3923)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-01-19 12:59:27 -0500
+Processing by SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 174)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-19 12:59:27 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 404 Not Found in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 346)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-19 13:01:44 -0500
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 404 Not Found in 70ms (Views: 2.1ms | ActiveRecord: 49.1ms | Allocations: 6139)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-19 13:02:31 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Chett", "last_name"=>"Tiller", "email"=>"chett@flatiron.com", "username"=>"chett", "password"=>"[FILTERED]", "user"=>{"username"=>"chett", "email"=>"chett@flatiron.com", "first_name"=>"Chett", "last_name"=>"Tiller"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chett@flatiron.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "chett"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Create (10.0ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "chett"], ["email", "chett@flatiron.com"], ["password_digest", "$2a$12$kV9eX/ZD3zvXdiP1/eBLj./IRUmHxKadxMJ67/nJHWoWKihYF7MTO"], ["first_name", "Chett"], ["last_name", "Tiller"], ["created_at", "2022-01-19 18:02:31.947777"], ["updated_at", "2022-01-19 18:02:31.947777"]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers]   [1m[36mPlace Load (0.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:16:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (28.62ms)
+Completed 201 Created in 344ms (Views: 33.5ms | ActiveRecord: 25.7ms | Allocations: 14750)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-19 13:02:56 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Chett", "last_name"=>"Tiller", "email"=>"chett@flatiron.com", "username"=>"chett", "password"=>"[FILTERED]", "user"=>{"username"=>"chett", "email"=>"chett@flatiron.com", "first_name"=>"Chett", "last_name"=>"Tiller"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chett@flatiron.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "chett"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 319ms (Views: 0.3ms | ActiveRecord: 5.5ms | Allocations: 6409)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-19 13:03:15 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 404 Not Found in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 364)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-01-19 13:03:21 -0500
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"chett@flatiron.com", "password"=>"[FILTERED]", "session"=>{"email"=>"chett@flatiron.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chett@flatiron.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 204 No Content in 301ms (ActiveRecord: 0.6ms | Allocations: 639)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-01-19 13:03:30 -0500
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"chett@flatiron.com", "password"=>"[FILTERED]", "session"=>{"email"=>"chett@flatiron.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "chett@flatiron.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers]   [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:6:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.97ms)
+Completed 200 OK in 301ms (Views: 1.9ms | ActiveRecord: 0.8ms | Allocations: 1767)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-19 13:04:21 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Kuu Ramen", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/0e/74/22/3a/beef-miso-ramen.jpg", "category"=>"restaurant", "user_id"=>3, "place"=>{"name"=>"Kuu Ramen", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/0e/74/22/3a/beef-miso-ramen.jpg", "category"=>"restaurant", "user_id"=>3}}
+[31mUnpermitted parameter: :place[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (2.8ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Kuu Ramen"], ["location", "New York City"], ["image", "https://media-cdn.tripadvisor.com/media/photo-s/0e/74/22/3a/beef-miso-ramen.jpg"], ["category", "restaurant"], ["user_id", 3], ["created_at", "2022-01-19 18:04:21.119386"], ["updated_at", "2022-01-19 18:04:21.119386"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.58ms)
+Completed 201 Created in 41ms (Views: 2.3ms | ActiveRecord: 10.1ms | Allocations: 6748)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-19 13:04:31 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Numero 28 Pizzeria", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/09/02/ba/8b/number-28.jpg", "category"=>"restaurant", "user_id"=>3, "place"=>{"name"=>"Numero 28 Pizzeria", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/09/02/ba/8b/number-28.jpg", "category"=>"restaurant", "user_id"=>3}}
+[31mUnpermitted parameter: :place[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (1.1ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Numero 28 Pizzeria"], ["location", "New York City"], ["image", "https://media-cdn.tripadvisor.com/media/photo-s/09/02/ba/8b/number-28.jpg"], ["category", "restaurant"], ["user_id", 3], ["created_at", "2022-01-19 18:04:31.521611"], ["updated_at", "2022-01-19 18:04:31.521611"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.55ms)
+Completed 201 Created in 19ms (Views: 1.4ms | ActiveRecord: 4.8ms | Allocations: 2836)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-19 13:04:34 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Tomino - Taberna Gallega", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-w/1a/8a/db/7c/arroz-caldoso-con-bogavante.jpg", "category"=>"restaurant", "user_id"=>3, "place"=>{"name"=>"Tomino - Taberna Gallega", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-w/1a/8a/db/7c/arroz-caldoso-con-bogavante.jpg", "category"=>"restaurant", "user_id"=>3}}
+[31mUnpermitted parameter: :place[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (0.6ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Tomino - Taberna Gallega"], ["location", "New York City"], ["image", "https://media-cdn.tripadvisor.com/media/photo-w/1a/8a/db/7c/arroz-caldoso-con-bogavante.jpg"], ["category", "restaurant"], ["user_id", 3], ["created_at", "2022-01-19 18:04:34.783604"], ["updated_at", "2022-01-19 18:04:34.783604"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.54ms)
+Completed 201 Created in 16ms (Views: 1.6ms | ActiveRecord: 3.6ms | Allocations: 2846)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-19 13:04:55 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Pizzeria Toro", "location"=>"Durham", "image"=>"https://media-cdn.tripadvisor.com/media/photo-p/04/4e/70/c9/pizzeria-toro.jpg", "category"=>"restaurant", "user_id"=>3, "place"=>{"name"=>"Pizzeria Toro", "location"=>"Durham", "image"=>"https://media-cdn.tripadvisor.com/media/photo-p/04/4e/70/c9/pizzeria-toro.jpg", "category"=>"restaurant", "user_id"=>3}}
+[31mUnpermitted parameter: :place[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (0.6ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Pizzeria Toro"], ["location", "Durham"], ["image", "https://media-cdn.tripadvisor.com/media/photo-p/04/4e/70/c9/pizzeria-toro.jpg"], ["category", "restaurant"], ["user_id", 3], ["created_at", "2022-01-19 18:04:55.761357"], ["updated_at", "2022-01-19 18:04:55.761357"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.49ms)
+Completed 201 Created in 17ms (Views: 1.3ms | ActiveRecord: 4.3ms | Allocations: 2835)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-19 13:05:01 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Foster's Market", "location"=>"Durham", "image"=>"https://media-cdn.tripadvisor.com/media/photo-o/05/82/c1/e1/foster-s-market.jpg", "category"=>"restaurant", "user_id"=>3, "place"=>{"name"=>"Foster's Market", "location"=>"Durham", "image"=>"https://media-cdn.tripadvisor.com/media/photo-o/05/82/c1/e1/foster-s-market.jpg", "category"=>"restaurant", "user_id"=>3}}
+[31mUnpermitted parameter: :place[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (0.7ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Foster's Market"], ["location", "Durham"], ["image", "https://media-cdn.tripadvisor.com/media/photo-o/05/82/c1/e1/foster-s-market.jpg"], ["category", "restaurant"], ["user_id", 3], ["created_at", "2022-01-19 18:05:01.837808"], ["updated_at", "2022-01-19 18:05:01.837808"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.38ms)
+Completed 201 Created in 12ms (Views: 1.7ms | ActiveRecord: 2.1ms | Allocations: 2833)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-19 13:05:12 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Nasher Museum of Art at Duke University", "location"=>"Durham", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/06/07/fb/ee/nasher-museum-of-art.jpg", "category"=>"attraction", "user_id"=>3, "place"=>{"name"=>"Nasher Museum of Art at Duke University", "location"=>"Durham", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/06/07/fb/ee/nasher-museum-of-art.jpg", "category"=>"attraction", "user_id"=>3}}
+[31mUnpermitted parameter: :place[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (0.8ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Nasher Museum of Art at Duke University"], ["location", "Durham"], ["image", "https://media-cdn.tripadvisor.com/media/photo-s/06/07/fb/ee/nasher-museum-of-art.jpg"], ["category", "attraction"], ["user_id", 3], ["created_at", "2022-01-19 18:05:12.019945"], ["updated_at", "2022-01-19 18:05:12.019945"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.34ms)
+Completed 201 Created in 18ms (Views: 1.0ms | ActiveRecord: 5.4ms | Allocations: 2831)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-19 13:05:19 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Historic Durham Athletic Park", "location"=>"Durham", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/06/09/57/f5/historic-durham-athletic.jpg", "category"=>"attraction", "user_id"=>3, "place"=>{"name"=>"Historic Durham Athletic Park", "location"=>"Durham", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/06/09/57/f5/historic-durham-athletic.jpg", "category"=>"attraction", "user_id"=>3}}
+[31mUnpermitted parameter: :place[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (1.3ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Historic Durham Athletic Park"], ["location", "Durham"], ["image", "https://media-cdn.tripadvisor.com/media/photo-s/06/09/57/f5/historic-durham-athletic.jpg"], ["category", "attraction"], ["user_id", 3], ["created_at", "2022-01-19 18:05:19.757883"], ["updated_at", "2022-01-19 18:05:19.757883"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 201 Created in 17ms (Views: 1.6ms | ActiveRecord: 3.0ms | Allocations: 2831)
+
+
+Started POST "/places" for 127.0.0.1 at 2022-01-19 13:05:35 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"21c Museum Hotel Durham", "location"=>"Durham", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/1d/05/45/9f/exterior-view.jpg", "category"=>"hotel", "user_id"=>3, "place"=>{"name"=>"21c Museum Hotel Durham", "location"=>"Durham", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/1d/05/45/9f/exterior-view.jpg", "category"=>"hotel", "user_id"=>3}}
+[31mUnpermitted parameter: :place[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (1.1ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "21c Museum Hotel Durham"], ["location", "Durham"], ["image", "https://media-cdn.tripadvisor.com/media/photo-s/1d/05/45/9f/exterior-view.jpg"], ["category", "hotel"], ["user_id", 3], ["created_at", "2022-01-19 18:05:35.151036"], ["updated_at", "2022-01-19 18:05:35.151036"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+Completed 201 Created in 16ms (Views: 1.3ms | ActiveRecord: 2.6ms | Allocations: 2831)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-19 13:05:46 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (1.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (11.67ms)
+Completed 200 OK in 18ms (Views: 11.3ms | ActiveRecord: 1.7ms | Allocations: 3009)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-19 13:05:46 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.93ms)
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.6ms | Allocations: 2542)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-19 13:06:22 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (2.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (5.65ms)
+Completed 200 OK in 14ms (Views: 3.7ms | ActiveRecord: 2.8ms | Allocations: 2847)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-19 13:06:23 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (0.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (4.6ms)
+Completed 200 OK in 9ms (Views: 4.6ms | ActiveRecord: 1.3ms | Allocations: 2851)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-19 13:06:23 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.67ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.4ms | Allocations: 2548)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 10:13:05 -0500
+Started GET "/logo.png" for 127.0.0.1 at 2022-01-20 10:13:05 -0500
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/logo.png"):
+  
+Processing by UsersController#show as */*
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (2.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (29.6ms)
+Completed 200 OK in 134ms (Views: 31.4ms | ActiveRecord: 81.1ms | Allocations: 22723)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 10:13:08 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+[active_model_serializers]   [1m[36mPlace Load (1.0ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (4.48ms)
+Completed 200 OK in 8ms (Views: 4.0ms | ActiveRecord: 1.7ms | Allocations: 2877)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-20 10:13:08 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 3]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.74ms)
+Completed 200 OK in 4ms (Views: 2.1ms | ActiveRecord: 0.4ms | Allocations: 2601)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2022-01-20 10:21:23 -0500
+Processing by SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Completed 204 No Content in 2ms (Allocations: 184)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 10:21:23 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 404 Not Found in 6ms (Views: 5.4ms | Allocations: 668)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 10:21:26 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 404 Not Found in 2ms (Views: 0.7ms | Allocations: 348)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:22:06 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Test", "last_name"=>"Test", "email"=>"yum", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"yum", "first_name"=>"Test", "last_name"=>"Test"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yum"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 422 Unprocessable Entity in 97ms (Views: 0.5ms | ActiveRecord: 17.0ms | Allocations: 9680)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:22:25 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"yum@gmail.com", "username"=>"hello", "password"=>"[FILTERED]", "user"=>{"username"=>"hello", "email"=>"yum@gmail.com", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yum@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "hello"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Create (5.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "hello"], ["email", "yum@gmail.com"], ["password_digest", "$2a$12$n.MzRf1Q1NZs/cQ2/hQFLeYGgwpJNYuGEacNMAmVHSdKAybaMLs0u"], ["first_name", ""], ["last_name", ""], ["created_at", "2022-01-20 15:22:25.611429"], ["updated_at", "2022-01-20 15:22:25.611429"]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers]   [1m[36mPlace Load (0.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:16:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.55ms)
+Completed 201 Created in 305ms (Views: 2.1ms | ActiveRecord: 8.0ms | Allocations: 4603)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:22:44 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Yuyi", "last_name"=>"Li", "email"=>"yuyi365@gmail.com", "username"=>"yuyi365", "password"=>"[FILTERED]", "user"=>{"username"=>"yuyi365", "email"=>"yuyi365@gmail.com", "first_name"=>"Yuyi", "last_name"=>"Li"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "yuyi365"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 300ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 3726)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:25:33 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Yuyi", "last_name"=>"Li", "email"=>"yuyi365@gmail.com", "username"=>"yuyi", "password"=>"[FILTERED]", "user"=>{"username"=>"yuyi", "email"=>"yuyi365@gmail.com", "first_name"=>"Yuyi", "last_name"=>"Li"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "yuyi"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 422 Unprocessable Entity in 300ms (Views: 1.0ms | ActiveRecord: 2.3ms | Allocations: 4464)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 10:27:43 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 404 Not Found in 4ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 342)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:27:48 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Yuyi", "last_name"=>"Li", "email"=>"yuyi365@gmail.com", "username"=>"hi", "password"=>"[FILTERED]", "user"=>{"username"=>"hi", "email"=>"yuyi365@gmail.com", "first_name"=>"Yuyi", "last_name"=>"Li"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "hi"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 303ms (Views: 0.4ms | ActiveRecord: 1.7ms | Allocations: 3629)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:28:34 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Yuyi", "last_name"=>"Li", "email"=>"yuyi365@gmail.com", "username"=>"hi", "password"=>"[FILTERED]", "user"=>{"username"=>"hi", "email"=>"yuyi365@gmail.com", "first_name"=>"Yuyi", "last_name"=>"Li"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "hi"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 422 Unprocessable Entity in 318ms (Views: 6.5ms | ActiveRecord: 1.5ms | Allocations: 3634)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:29:00 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"yuyi365@gmail.com", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"yuyi365@gmail.com", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 422 Unprocessable Entity in 33ms (Views: 1.4ms | ActiveRecord: 1.5ms | Allocations: 5170)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:30:23 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"yuyi365@gmail.com", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"yuyi365@gmail.com", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 422 Unprocessable Entity in 31ms (Views: 1.1ms | ActiveRecord: 1.9ms | Allocations: 5169)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:30:37 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Completed 422 Unprocessable Entity in 35ms (Views: 0.9ms | ActiveRecord: 2.3ms | Allocations: 5193)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:31:28 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 422 Unprocessable Entity in 34ms (Views: 0.6ms | ActiveRecord: 1.1ms | Allocations: 5176)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:31:35 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 422 Unprocessable Entity in 16ms (Views: 0.5ms | ActiveRecord: 1.7ms | Allocations: 5169)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:32:10 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+Completed 422 Unprocessable Entity in 34ms (Views: 1.2ms | ActiveRecord: 1.9ms | Allocations: 5165)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:32:24 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 422 Unprocessable Entity in 28ms (Views: 0.9ms | ActiveRecord: 1.8ms | Allocations: 5165)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 10:33:03 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.35ms)
+Completed 404 Not Found in 26ms (Views: 1.8ms | ActiveRecord: 0.0ms | Allocations: 342)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:33:04 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 422 Unprocessable Entity in 44ms (Views: 0.8ms | ActiveRecord: 2.4ms | Allocations: 5166)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 10:33:23 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 404 Not Found in 10ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 348)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:33:24 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 422 Unprocessable Entity in 28ms (Views: 1.1ms | ActiveRecord: 2.2ms | Allocations: 5165)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 10:33:50 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.32ms)
+Completed 404 Not Found in 32ms (Views: 15.7ms | ActiveRecord: 0.0ms | Allocations: 346)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:33:51 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 422 Unprocessable Entity in 29ms (Views: 0.6ms | ActiveRecord: 2.0ms | Allocations: 5165)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:34:12 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.22ms)
+Completed 422 Unprocessable Entity in 25ms (Views: 1.2ms | ActiveRecord: 1.7ms | Allocations: 5165)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:34:32 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 422 Unprocessable Entity in 26ms (Views: 0.8ms | ActiveRecord: 2.2ms | Allocations: 5165)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:35:27 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 422 Unprocessable Entity in 40ms (Views: 0.5ms | ActiveRecord: 1.8ms | Allocations: 5168)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:36:02 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.42ms)
+Completed 422 Unprocessable Entity in 29ms (Views: 1.2ms | ActiveRecord: 2.0ms | Allocations: 5166)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:36:43 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Completed 422 Unprocessable Entity in 31ms (Views: 1.2ms | ActiveRecord: 2.2ms | Allocations: 5165)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:37:00 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Completed 422 Unprocessable Entity in 32ms (Views: 5.8ms | ActiveRecord: 1.5ms | Allocations: 5165)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:37:23 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.23ms)
+Completed 422 Unprocessable Entity in 25ms (Views: 1.2ms | ActiveRecord: 1.1ms | Allocations: 5166)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:37:34 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 422 Unprocessable Entity in 14ms (Views: 0.5ms | ActiveRecord: 1.7ms | Allocations: 5165)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:38:33 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (5.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 422 Unprocessable Entity in 71ms (Views: 0.6ms | ActiveRecord: 6.4ms | Allocations: 5165)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:39:05 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Completed 422 Unprocessable Entity in 47ms (Views: 1.1ms | ActiveRecord: 1.6ms | Allocations: 5165)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:39:28 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 422 Unprocessable Entity in 26ms (Views: 0.7ms | ActiveRecord: 1.4ms | Allocations: 5165)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:40:20 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (3.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 422 Unprocessable Entity in 65ms (Views: 0.8ms | ActiveRecord: 4.8ms | Allocations: 5168)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 10:40:25 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 404 Not Found in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 355)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:40:36 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 422 Unprocessable Entity in 21ms (Views: 0.7ms | ActiveRecord: 1.8ms | Allocations: 5166)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:40:45 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 422 Unprocessable Entity in 19ms (Views: 0.7ms | ActiveRecord: 5.1ms | Allocations: 5165)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:41:03 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 422 Unprocessable Entity in 21ms (Views: 0.6ms | ActiveRecord: 2.0ms | Allocations: 5165)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:41:24 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 422 Unprocessable Entity in 25ms (Views: 1.3ms | ActiveRecord: 1.4ms | Allocations: 5166)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:42:19 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Completed 422 Unprocessable Entity in 23ms (Views: 1.3ms | ActiveRecord: 1.8ms | Allocations: 5165)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:43:03 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.18ms)
+Completed 422 Unprocessable Entity in 29ms (Views: 1.2ms | ActiveRecord: 5.8ms | Allocations: 5165)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:43:20 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 422 Unprocessable Entity in 25ms (Views: 0.8ms | ActiveRecord: 1.5ms | Allocations: 5165)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:43:41 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (5.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Completed 422 Unprocessable Entity in 28ms (Views: 1.0ms | ActiveRecord: 5.8ms | Allocations: 5165)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:43:48 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 16ms (Views: 0.4ms | ActiveRecord: 1.8ms | Allocations: 5167)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:43:57 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 422 Unprocessable Entity in 36ms (Views: 1.1ms | ActiveRecord: 2.0ms | Allocations: 5166)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:44:40 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 422 Unprocessable Entity in 36ms (Views: 0.8ms | ActiveRecord: 2.3ms | Allocations: 5166)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:44:48 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 422 Unprocessable Entity in 24ms (Views: 0.6ms | ActiveRecord: 3.2ms | Allocations: 5165)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:44:59 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 422 Unprocessable Entity in 10ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 5165)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:45:28 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 422 Unprocessable Entity in 35ms (Views: 1.0ms | ActiveRecord: 1.6ms | Allocations: 5166)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:47:00 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Yuyi", "last_name"=>"Li", "email"=>"yuyi365@gmail.com", "username"=>"yuyi", "password"=>"[FILTERED]", "user"=>{"username"=>"yuyi", "email"=>"yuyi365@gmail.com", "first_name"=>"Yuyi", "last_name"=>"Li"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "yuyi"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 422 Unprocessable Entity in 297ms (Views: 0.6ms | ActiveRecord: 2.4ms | Allocations: 4425)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 10:47:10 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Completed 404 Not Found in 2ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 352)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:47:20 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Yuyi", "last_name"=>"Li", "email"=>"yuyi365@gmail.com", "username"=>"yuyi", "password"=>"[FILTERED]", "user"=>{"username"=>"yuyi", "email"=>"yuyi365@gmail.com", "first_name"=>"Yuyi", "last_name"=>"Li"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "yuyi"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 422 Unprocessable Entity in 300ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 4426)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 10:47:39 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Yuyi", "last_name"=>"Li", "email"=>"yuyi365@gmail.com", "username"=>"yuyi", "password"=>"[FILTERED]", "user"=>{"username"=>"yuyi", "email"=>"yuyi365@gmail.com", "first_name"=>"Yuyi", "last_name"=>"Li"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "yuyi"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.04ms)
+Completed 422 Unprocessable Entity in 302ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 4426)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 10:48:16 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 404 Not Found in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 348)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 11:14:38 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.23ms)
+Completed 404 Not Found in 4ms (Views: 1.3ms | Allocations: 353)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 11:15:04 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 404 Not Found in 3ms (Views: 1.0ms | Allocations: 349)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 11:16:17 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.23ms)
+Completed 404 Not Found in 6ms (Views: 1.4ms | Allocations: 346)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 11:17:52 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 404 Not Found in 8ms (Views: 1.2ms | Allocations: 350)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 11:18:05 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"", "last_name"=>"", "email"=>"", "username"=>"", "password"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "first_name"=>"", "last_name"=>""}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (7.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 422 Unprocessable Entity in 376ms (Views: 0.3ms | ActiveRecord: 42.2ms | Allocations: 7517)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 11:26:29 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 404 Not Found in 11ms (Views: 7.5ms | Allocations: 354)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 11:26:37 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 404 Not Found in 2ms (Views: 0.5ms | Allocations: 352)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 11:26:56 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 404 Not Found in 2ms (Views: 0.9ms | Allocations: 342)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 11:28:21 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 404 Not Found in 7ms (Views: 1.5ms | Allocations: 348)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 11:28:48 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 404 Not Found in 3ms (Views: 1.3ms | Allocations: 348)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 11:31:00 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.27ms)
+Completed 404 Not Found in 3ms (Views: 1.5ms | Allocations: 348)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 11:31:18 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 404 Not Found in 3ms (Views: 1.0ms | Allocations: 348)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 11:32:03 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.4ms)
+Completed 404 Not Found in 3ms (Views: 1.4ms | Allocations: 346)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 16:47:21 -0500
+  [1m[35m (5.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 404 Not Found in 25ms (Views: 2.1ms | ActiveRecord: 4.5ms | Allocations: 6054)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 16:47:26 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 404 Not Found in 4ms (Views: 1.5ms | ActiveRecord: 0.0ms | Allocations: 279)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-20 16:55:13 -0500
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.7ms)
+Completed 404 Not Found in 22ms (Views: 2.3ms | Allocations: 279)
+
+
+Started POST "/signup" for 127.0.0.1 at 2022-01-20 16:55:37 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Yuyi", "last_name"=>"Li", "email"=>"hi@gmail.com", "username"=>"hi", "password"=>"[FILTERED]", "user"=>{"username"=>"hi", "email"=>"hi@gmail.com", "first_name"=>"Yuyi", "last_name"=>"Li"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (18.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "hi@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "hi"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Create (13.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "hi"], ["email", "hi@gmail.com"], ["password_digest", "$2a$12$YMUa35C3vE958F/p9lrTVuQjgHvu4FEU8fHROSZki1gLijY16SV/6"], ["first_name", "Yuyi"], ["last_name", "Li"], ["created_at", "2022-01-20 21:55:38.099248"], ["updated_at", "2022-01-20 21:55:38.099248"]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers]   [1m[36mPlace Load (2.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:16:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (24.45ms)
+Completed 201 Created in 395ms (Views: 43.0ms | ActiveRecord: 87.6ms | Allocations: 14771)
+
+

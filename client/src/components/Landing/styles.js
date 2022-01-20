@@ -5,7 +5,10 @@ export default makeStyles((theme) => ({
     display: "none",
     [theme.breakpoints.up("sm")]: {
       display: "block",
+      marginLeft: theme.spacing(3),
     },
+    fontFamily: "Mochiy Pop P One",
+    fontSize: "175%",
   },
   search: {
     position: "relative",
@@ -46,5 +49,9 @@ export default makeStyles((theme) => ({
   button: {
     display: "block",
     color: "white",
+    [theme.breakpoints.up("sm")]: {
+      display: "block",
+      marginRight: theme.spacing(3),
+    },
   },
 }));

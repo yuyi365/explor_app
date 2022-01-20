@@ -5,8 +5,10 @@ export default makeStyles((theme) => ({
     display: "none",
     [theme.breakpoints.up("sm")]: {
       display: "block",
-      marginLeft: theme.spacing(4),
+      marginLeft: theme.spacing(3),
     },
+    fontFamily: "Mochiy Pop P One",
+    fontSize: "175%",
   },
   toolbar: {
     display: "flex",
@@ -17,14 +19,18 @@ export default makeStyles((theme) => ({
     color: "white",
     backgroundColor: alpha(theme.palette.common.white, 0),
     "&:hover": { backgroundColor: alpha(theme.palette.common.white, 0.25) },
+    [theme.breakpoints.up("sm")]: {
+      marginRight: theme.spacing(3),
+    },
   },
   buttonSearch: {
     position: "relative",
     color: "white",
-
+    backgroundColor: alpha(theme.palette.common.white, 0.1),
+    "&:hover": { backgroundColor: alpha(theme.palette.common.white, 0.25) },
     [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(50),
-      width: "50%",
+      marginLeft: theme.spacing(75),
+      width: "40%",
     },
   },
 }));

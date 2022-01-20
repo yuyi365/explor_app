@@ -21,7 +21,10 @@ const SignUp = () => {
   const [emailValid, setEmailValid] = useState(true);
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
-  const [passwordMatch, setPasswordMatch] = useState(true);
+  // const [passwordMatch, setPasswordMatch] = useState(false);
+  const [errors, setErrors] = useState([]);
+
+  const passwordMatch = password === passwordRepeat;
 
   const checkEmail = () => {
     if (
@@ -38,21 +41,22 @@ const SignUp = () => {
     }
   };
 
-  const checkPassword = () => {
-    if (password === passwordRepeat) {
-      setPasswordMatch(true);
-      return passwordMatch;
-    } else {
-      setPasswordMatch((passwordMatch) => !passwordMatch);
-    }
-  };
+  // const checkPassword = () => {
+  //   console.log(password);
+  //   console.log(passwordRepeat);
+
+  //   if (password === passwordRepeat) {
+  //     setPasswordMatch(true);
+  //   } else {
+  //     setPasswordMatch(false);
+  //   }
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     checkEmail();
-    checkPassword();
 
-    if (checkEmail && checkPassword) {
+    if (checkEmail && passwordMatch) {
       const user = {
         first_name: firstname,
         last_name: lastname,
@@ -76,7 +80,10 @@ const SignUp = () => {
             );
           });
         } else {
-          res.json().then((errors) => console.log(errors));
+          res.json().then((errors) => {
+            setErrors(errors.errors.flat());
+          });
+          alert(`Please try again! ${errors.join(". ")}.`);
         }
       });
 
@@ -198,34 +205,23 @@ const SignUp = () => {
                     onChange={(e) => setUsername(e.target.value)}
                   />
                 </Grid>
+
                 <Grid item xs={12}>
-                  {passwordMatch ? (
-                    <TextField
-                      required
-                      fullWidth
-                      name="password"
-                      label="Password"
-                      type="password"
-                      id="password"
-                      autoComplete="new-password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  ) : (
-                    <TextField
-                      error
-                      required
-                      fullWidth
-                      id="filled-error-helper-text"
-                      label="Password"
-                      helperText="Passwords don't match, please try again"
-                      variant="filled"
-                      type="password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  )}
+                  <TextField
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="new-password"
+                    value={password}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
+                  />
                 </Grid>
+
                 <Grid item xs={12}>
                   {passwordMatch ? (
                     <TextField
@@ -237,7 +233,9 @@ const SignUp = () => {
                       id="password-match"
                       autoComplete="new-password-match"
                       value={passwordRepeat}
-                      onChange={(e) => setPasswordRepeat(e.target.value)}
+                      onChange={(e) => {
+                        setPasswordRepeat(e.target.value);
+                      }}
                     />
                   ) : (
                     <TextField
@@ -250,7 +248,9 @@ const SignUp = () => {
                       variant="filled"
                       type="password"
                       value={passwordRepeat}
-                      onChange={(e) => setPasswordRepeat(e.target.value)}
+                      onChange={(e) => {
+                        setPasswordRepeat(e.target.value);
+                      }}
                     />
                   )}
                 </Grid>

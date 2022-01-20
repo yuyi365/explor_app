@@ -25,7 +25,7 @@ const PlacesHeader = ({ setUser }) => {
 
           <Box>
             <Button className={classes.buttonSearch} href="/">
-              Search
+              Search For Places
             </Button>
           </Box>
 

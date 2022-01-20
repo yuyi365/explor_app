@@ -42,7 +42,13 @@ const PlacesCard = ({ id, myPlace, handleDelete }) => {
             )}
           </CardContent>
           <CardContent align="center">
-            <Button size="small" align="right" onClick={handleDeleteClick}>
+            <Button
+              variant="outlined"
+              color="secondary"
+              size="small"
+              align="right"
+              onClick={handleDeleteClick}
+            >
               Remove Place
             </Button>
           </CardContent>

@@ -5,8 +5,10 @@ export default makeStyles((theme) => ({
     display: "none",
     [theme.breakpoints.up("sm")]: {
       display: "block",
-      marginLeft: theme.spacing(4),
+      marginLeft: theme.spacing(3),
     },
+    fontFamily: "Mochiy Pop P One",
+    fontSize: "175%",
   },
   titleTwo: {
     display: "none",
@@ -56,6 +58,10 @@ export default makeStyles((theme) => ({
     color: "white",
     backgroundColor: alpha(theme.palette.common.white, 0),
     "&:hover": { backgroundColor: alpha(theme.palette.common.white, 0.25) },
+    [theme.breakpoints.up("sm")]: {
+      display: "block",
+      marginRight: theme.spacing(3),
+    },
   },
   buttonPlaces: {
     position: "relative",

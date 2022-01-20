@@ -23,8 +23,8 @@ With Explor, plan your next local day excursion or trip around the world with ea
 
 # Deployment
 
-TBD
+Coming soon...
 
 ## Future Developments
 
-1. TBD
+Coming soon...

@@ -8,6 +8,7 @@ import {
   InputLabel,
   MenuItem,
   Select,
+  Button,
 } from "@material-ui/core";
 
 import useStyles from "./styles";
@@ -37,7 +38,7 @@ const PlacesContainer = ({ savedPlaces, setSavedPlaces, handleDelete }) => {
     });
   }, []);
 
-  const mapSavedPlaces = visiblePlaces.map((myPlace) => {
+  const mapSavedPlaces = visiblePlaces?.map((myPlace) => {
     return (
       <PlacesCard
         key={myPlace.id}
@@ -90,10 +91,31 @@ const PlacesContainer = ({ savedPlaces, setSavedPlaces, handleDelete }) => {
         style={{ justifyContent: "center", display: "flex" }}
       >
         <Grid item xs={6} sx={{ mt: 3 }} align="center">
-          <Typography gutterBottom variant="h5">
+          <Typography gutterBottom variant="h4" color="primary">
             My Places
           </Typography>
-          {mapSavedPlaces}
+          {visiblePlaces.length > 0 ? (
+            mapSavedPlaces
+          ) : (
+            <Grid item xs={6} sx={{ mt: 3 }} align="center">
+              <Box container noValidate sx={{ mt: 3 }}>
+                <Typography gutterBottom variant="h5" color="secondary">
+                  {`Looks like you have yet to find ${selectedCategory}s in ${selectedPlace}!`}
+                </Typography>
+              </Box>
+
+              <Box container noValidate sx={{ mt: 3 }}>
+                <Button
+                  href="/"
+                  variant="outlined"
+                  color="primary"
+                  sx={{ mt: 10 }}
+                >
+                  Search for {`${selectedCategory}s`}
+                </Button>
+              </Box>
+            </Grid>
+          )}
         </Grid>
       </Box>
     </>

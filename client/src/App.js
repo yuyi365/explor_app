@@ -83,7 +83,11 @@ const App = () => {
 
         <Switch>
           <Route exact path="/">
-            <Header setCoordinates={setCoordinates} setUser={setUser} />
+            <Header
+              setCoordinates={setCoordinates}
+              setUser={setUser}
+              user={user}
+            />
             <Grid container spacing={3} style={{ width: "100%" }}>
               <Grid item xs={12} md={4}>
                 <List
@@ -111,7 +115,7 @@ const App = () => {
           </Route>
 
           <Route exact path="/myplaces">
-            <PlacesHeader setUser={setUser} />
+            <PlacesHeader setUser={setUser} user={user} />
             <PlacesContainer
               savedPlaces={savedPlaces}
               setSavedPlaces={setSavedPlaces}

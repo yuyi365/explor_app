@@ -41,17 +41,6 @@ const SignUp = () => {
     }
   };
 
-  // const checkPassword = () => {
-  //   console.log(password);
-  //   console.log(passwordRepeat);
-
-  //   if (password === passwordRepeat) {
-  //     setPasswordMatch(true);
-  //   } else {
-  //     setPasswordMatch(false);
-  //   }
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     checkEmail();

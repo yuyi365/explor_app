@@ -14,15 +14,6 @@ export default makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
   },
-  buttonLogout: {
-    display: "block",
-    color: "white",
-    backgroundColor: alpha(theme.palette.common.white, 0),
-    "&:hover": { backgroundColor: alpha(theme.palette.common.white, 0.25) },
-    [theme.breakpoints.up("sm")]: {
-      marginRight: theme.spacing(3),
-    },
-  },
   buttonSearch: {
     position: "relative",
     color: "white",

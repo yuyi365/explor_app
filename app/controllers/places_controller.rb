@@ -35,7 +35,15 @@ class PlacesController < ApplicationController
   end
 
   def place_params
-    params.permit(:name, :location, :image, :user_id, :category)
+    params.permit(
+      :name,
+      :location,
+      :image,
+      :user_id,
+      :category,
+      :price_level,
+      :website,
+    )
   end
 
   def render_not_found

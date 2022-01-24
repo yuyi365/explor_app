@@ -16,6 +16,7 @@ import useStyles from "./styles";
 const PlacesContainer = ({ savedPlaces, setSavedPlaces, handleDelete }) => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedPlace, setSelectedPlace] = useState("all");
+  const [selectedPrice, setSelectedPrice] = useState("all");
 
   const visiblePlaces = savedPlaces
     .filter((place) => {
@@ -24,6 +25,9 @@ const PlacesContainer = ({ savedPlaces, setSavedPlaces, handleDelete }) => {
     })
     .filter((place) => {
       return selectedPlace === "all" || place.location === selectedPlace;
+    })
+    .filter((place) => {
+      return selectedPrice === "all" || place.price_level === selectedPrice;
     });
 
   const classes = useStyles();
@@ -57,6 +61,18 @@ const PlacesContainer = ({ savedPlaces, setSavedPlaces, handleDelete }) => {
     return <MenuItem value={place}>{place}</MenuItem>;
   });
 
+  let priceArr = savedPlaces.map((myPlace) => {
+    return myPlace.price_level;
+  });
+  let uniquePrice = [...new Set(priceArr)].sort();
+  const mapUniquePrices = uniquePrice
+    .filter((place) => {
+      return place !== null && place !== "";
+    })
+    .map((place) => {
+      return <MenuItem value={place}>{place}</MenuItem>;
+    });
+
   return (
     <>
       <Box
@@ -82,6 +98,15 @@ const PlacesContainer = ({ savedPlaces, setSavedPlaces, handleDelete }) => {
             {mapUniquePlaces}
           </Select>
         </FormControl>
+
+        <FormControl className={classes.formControl}>
+          <InputLabel>Price</InputLabel>
+
+          <Select onChange={(e) => setSelectedPrice(e.target.value)}>
+            <MenuItem value="all">All</MenuItem>
+            {mapUniquePrices}
+          </Select>
+        </FormControl>
       </Box>
 
       <Box
@@ -100,7 +125,7 @@ const PlacesContainer = ({ savedPlaces, setSavedPlaces, handleDelete }) => {
             <Grid item xs={6} sx={{ mt: 3 }} align="center">
               <Box container noValidate sx={{ mt: 3 }}>
                 <Typography gutterBottom variant="h5" color="secondary">
-                  {`Looks like you have yet to find ${selectedCategory}s in ${selectedPlace}!`}
+                  {`Looks like you have yet to find ${selectedCategory}s in ${selectedPlace} within the price of ${selectedPrice}!`}
                 </Typography>
               </Box>
 

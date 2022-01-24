@@ -19,8 +19,8 @@ const List = ({
   isLoading,
   type,
   setType,
-  rating,
-  setRating,
+  priceLevel,
+  setPriceLevel,
   user,
 }) => {
   const classes = useStyles();
@@ -58,11 +58,31 @@ const List = ({
             </Select>
           </FormControl>
           <FormControl className={classes.formControl}>
-            <InputLabel>Rating</InputLabel>
-            <Select value={rating} onChange={(e) => setRating(e.target.value)}>
-              <MenuItem value={0}>All</MenuItem>
-              <MenuItem value={3}>Above 3.0</MenuItem>
-              <MenuItem value={4}>Above 4.0</MenuItem>
+            <InputLabel>Price</InputLabel>
+            <Select
+              value={priceLevel}
+              onChange={(e) => setPriceLevel(e.target.value)}
+            >
+              <MenuItem
+                value={
+                  "$" ||
+                  "$ - $$" ||
+                  "$$" ||
+                  "$$ - $$$" ||
+                  "$$$" ||
+                  "$$$ - $$" ||
+                  "$$$$"
+                }
+              >
+                All
+              </MenuItem>
+              <MenuItem value={"$"}>$</MenuItem>
+              <MenuItem value={"$ - $$"}>$ - $$</MenuItem>
+              <MenuItem value={"$$"}>$$</MenuItem>
+              <MenuItem value={"$$ - $$$"}>$$ - $$$</MenuItem>
+              <MenuItem value={"$$$"}>$$$</MenuItem>
+              <MenuItem value={"$$$ - $$$$"}>$$$ - $$$$</MenuItem>
+              <MenuItem value={"$$$$"}>$$$$</MenuItem>
             </Select>
           </FormControl>
           <Grid container spacing={3} className={classes.list}>

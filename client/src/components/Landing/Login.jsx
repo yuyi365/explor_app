@@ -17,6 +17,7 @@ const Login = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailValid, setEmailValid] = useState(true);
+  const [errors, setErrors] = useState([]);
 
   const checkEmail = () => {
     if (
@@ -42,13 +43,18 @@ const Login = ({ setUser }) => {
     };
     fetch("/login", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(user),
     }).then((res) => {
       if (res.ok) {
         res.json().then((data) => setUser(data));
       } else {
-        res.json().then((errors) => console.log(errors));
+        res.json().then((errors) => {
+          setErrors(errors.errors.flat());
+        });
+        alert(`Please try again! ${errors.join(". ")}.`);
       }
     });
 

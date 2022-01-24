@@ -22,7 +22,7 @@ const PlaceDetails = ({ place, selected, refProp, user }) => {
   if (selected)
     refProp?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
 
-  console.log(place.ranking_category);
+  console.log(place);
 
   const handleAddPlace = () => {
     const placeInfo = {
@@ -31,6 +31,8 @@ const PlaceDetails = ({ place, selected, refProp, user }) => {
       image: place.photo.images.large.url,
       category: place.ranking_category,
       user_id: user.id,
+      website: place.website,
+      price_level: place.price_level,
     };
 
     fetch("/places", {

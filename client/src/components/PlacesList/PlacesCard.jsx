@@ -40,7 +40,24 @@ const PlacesCard = ({ id, myPlace, handleDelete }) => {
                 Location: {myPlace.location}
               </Typography>
             )}
+
+            {myPlace.price_level && (
+              <Typography gutterButtom variant="subtitle1">
+                Price: {myPlace.price_level}
+              </Typography>
+            )}
           </CardContent>
+
+          {myPlace.website && (
+            <Button
+              size="small"
+              color="primary"
+              onClick={() => window.open(myPlace.website, "_blank")}
+            >
+              Website
+            </Button>
+          )}
+
           <CardContent align="center">
             <Button
               variant="outlined"

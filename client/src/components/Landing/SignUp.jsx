@@ -21,7 +21,6 @@ const SignUp = () => {
   const [emailValid, setEmailValid] = useState(true);
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
-  // const [passwordMatch, setPasswordMatch] = useState(false);
   const [errors, setErrors] = useState([]);
 
   const passwordMatch = password === passwordRepeat;

@@ -26,7 +26,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const [type, setType] = useState("restaurants");
-  const [rating, setRating] = useState("");
+  const [priceLevel, setPriceLevel] = useState("");
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -48,10 +48,10 @@ const App = () => {
 
   useEffect(() => {
     const filteredPlaces = places.filter((place) => {
-      return place.rating > rating;
+      return place.price_level === priceLevel;
     });
     setFilteredPlaces(filteredPlaces);
-  }, [rating]);
+  }, [priceLevel]);
 
   useEffect(() => {
     if (bounds.sw && bounds.ne) {
@@ -96,8 +96,8 @@ const App = () => {
                   isLoading={isLoading}
                   type={type}
                   setType={setType}
-                  rating={rating}
-                  setRating={setRating}
+                  priceLevel={priceLevel}
+                  setPriceLevel={setPriceLevel}
                   user={user}
                 />
               </Grid>

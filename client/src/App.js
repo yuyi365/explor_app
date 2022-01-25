@@ -12,8 +12,9 @@ import Map from "./components/Map/Map";
 import SignUp from "./components/Landing/SignUp";
 import Login from "./components/Landing/Login";
 import PlacesContainer from "./components/PlacesList/PlacesContainer";
+import Profile from "./components/Profile/Profile";
 
-// import "./index.css";
+import "./index.css";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -29,11 +30,13 @@ const App = () => {
   const [priceLevel, setPriceLevel] = useState("");
 
   useEffect(() => {
-    fetch("/me").then((r) => {
-      if (r.ok) {
-        r.json().then((foundUser) => {
+    fetch("/me").then((res) => {
+      if (res.ok) {
+        res.json().then((foundUser) => {
           setUser(foundUser);
         });
+      } else {
+        res.json().then((errors) => console.log(errors));
       }
     });
   }, []);
@@ -82,6 +85,19 @@ const App = () => {
         <CssBaseline />
 
         <Switch>
+          <Route exact path="/myplaces">
+            <PlacesHeader setUser={setUser} user={user} />
+            <PlacesContainer
+              savedPlaces={savedPlaces}
+              setSavedPlaces={setSavedPlaces}
+              handleDelete={handleDelete}
+            />
+          </Route>
+          <Route exact path="/myprofile">
+            <PlacesHeader setUser={setUser} user={user} />
+            <Profile user={user} />
+          </Route>
+
           <Route exact path="/">
             <Header
               setCoordinates={setCoordinates}
@@ -101,7 +117,6 @@ const App = () => {
                   user={user}
                 />
               </Grid>
-
               <Grid item xs={12} md={8}>
                 <Map
                   setCoordinates={setCoordinates}
@@ -112,15 +127,6 @@ const App = () => {
                 />
               </Grid>
             </Grid>
-          </Route>
-
-          <Route exact path="/myplaces">
-            <PlacesHeader setUser={setUser} user={user} />
-            <PlacesContainer
-              savedPlaces={savedPlaces}
-              setSavedPlaces={setSavedPlaces}
-              handleDelete={handleDelete}
-            />
           </Route>
         </Switch>
       </>

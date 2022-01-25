@@ -17,7 +17,6 @@ const Login = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailValid, setEmailValid] = useState(true);
-  const [errors, setErrors] = useState([]);
 
   const checkEmail = () => {
     if (
@@ -52,9 +51,8 @@ const Login = ({ setUser }) => {
         res.json().then((data) => setUser(data));
       } else {
         res.json().then((errors) => {
-          setErrors(errors.errors.flat());
+          alert(`${errors.errors}`);
         });
-        alert(`Please try again! ${errors.join(". ")}.`);
       }
     });
 

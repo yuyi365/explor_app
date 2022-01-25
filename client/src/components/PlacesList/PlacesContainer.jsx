@@ -58,7 +58,11 @@ const PlacesContainer = ({ savedPlaces, setSavedPlaces, handleDelete }) => {
   });
   let unique = [...new Set(placeArr)];
   const mapUniquePlaces = unique.map((place) => {
-    return <MenuItem value={place}>{place}</MenuItem>;
+    return (
+      <MenuItem value={place} key={place.id} id={place.id}>
+        {place}
+      </MenuItem>
+    );
   });
 
   let priceArr = savedPlaces.map((myPlace) => {
@@ -70,7 +74,11 @@ const PlacesContainer = ({ savedPlaces, setSavedPlaces, handleDelete }) => {
       return place !== null && place !== "";
     })
     .map((place) => {
-      return <MenuItem value={place}>{place}</MenuItem>;
+      return (
+        <MenuItem value={place} key={place.id} id={place.id}>
+          {place}
+        </MenuItem>
+      );
     });
 
   return (
@@ -78,7 +86,7 @@ const PlacesContainer = ({ savedPlaces, setSavedPlaces, handleDelete }) => {
       <Box
         container
         noValidate
-        sx={{ mt: 3 }}
+        sx={{ mt: 12 }}
         style={{ justifyContent: "center", display: "flex" }}
       >
         <FormControl className={classes.formControl}>
@@ -116,7 +124,11 @@ const PlacesContainer = ({ savedPlaces, setSavedPlaces, handleDelete }) => {
         style={{ justifyContent: "center", display: "flex" }}
       >
         <Grid item xs={6} sx={{ mt: 3 }} align="center">
-          <Typography gutterBottom variant="h4" color="primary">
+          <Typography
+            variant="h4"
+            color="primary"
+            style={{ fontFamily: "Mochiy Pop P One" }}
+          >
             My Places
           </Typography>
           {visiblePlaces.length > 0 ? (
@@ -124,7 +136,7 @@ const PlacesContainer = ({ savedPlaces, setSavedPlaces, handleDelete }) => {
           ) : (
             <Grid item xs={6} sx={{ mt: 3 }} align="center">
               <Box container noValidate sx={{ mt: 3 }}>
-                <Typography gutterBottom variant="h5" color="secondary">
+                <Typography variant="h5" color="secondary">
                   {`Looks like you have yet to find ${selectedCategory}s in ${selectedPlace} within the price of ${selectedPrice}!`}
                 </Typography>
               </Box>

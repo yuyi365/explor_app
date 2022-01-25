@@ -21,7 +21,6 @@ const SignUp = () => {
   const [emailValid, setEmailValid] = useState(true);
   const [password, setPassword] = useState("");
   const [passwordRepeat, setPasswordRepeat] = useState("");
-  const [errors, setErrors] = useState([]);
 
   const passwordMatch = password === passwordRepeat;
 
@@ -69,9 +68,8 @@ const SignUp = () => {
           });
         } else {
           res.json().then((errors) => {
-            setErrors(errors.errors.flat());
+            alert(`Please try again! ${errors.errors}.`);
           });
-          alert(`Please try again! ${errors.join(". ")}.`);
         }
       });
 

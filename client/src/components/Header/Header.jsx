@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
+import { useHistory } from "react-router";
 import { Autocomplete } from "@react-google-maps/api";
 import {
   AppBar,
@@ -24,9 +25,11 @@ import Map from "@mui/icons-material/Map";
 import useStyles from "./styles";
 
 const Header = ({ setCoordinates, setUser, user }) => {
-  const classes = useStyles();
   const [autocomplete, setAutocomplete] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
+
+  const classes = useStyles();
+  const history = useHistory();
 
   const onLoad = (autoC) => {
     setAutocomplete(autoC);
@@ -48,6 +51,7 @@ const Header = ({ setCoordinates, setUser, user }) => {
   };
 
   const handleLogout = () => {
+    history.push("/");
     setUser(null);
     fetch("/logout", {
       method: "DELETE",
@@ -149,14 +153,14 @@ const Header = ({ setCoordinates, setUser, user }) => {
               transformOrigin={{ horizontal: "right", vertical: "top" }}
               anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
-              <MenuItem>
+              <MenuItem onClick={() => history.push("/myprofile")}>
                 <ListItemIcon>
                   <Face fontSize="small" />
                 </ListItemIcon>
                 My Profile
               </MenuItem>
 
-              <MenuItem href="/myplaces">
+              <MenuItem onClick={() => history.push("/myplaces")}>
                 <ListItemIcon>
                   <Map fontSize="small" />
                 </ListItemIcon>
@@ -165,7 +169,7 @@ const Header = ({ setCoordinates, setUser, user }) => {
 
               <Divider />
 
-              <MenuItem onClick={handleLogout} href="/">
+              <MenuItem onClick={handleLogout}>
                 <ListItemIcon>
                   <Logout fontSize="small" />
                 </ListItemIcon>

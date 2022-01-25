@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    user = User.find(session[:user_id])
+    user = find_user
     render json: user, status: :ok
   end
 
@@ -16,7 +16,31 @@ class UsersController < ApplicationController
     render json: user, status: :created
   end
 
+  def update
+    user = find_user
+    user.update!(user_params)
+    render json: user, status: :accepted
+  end
+
+  # def update_password
+  #   user = find_user
+  #   if BCrypt::Password.create(params[:currentPassword]) == user.password_digest
+  #     user.update!(user_params)
+  #     render json: user, status: :accepted
+  #   else
+  #     render json: {
+  #              error:
+  #                'Current password does not match what is on file. Please try again!',
+  #            },
+  #            status: :unprocessable_entity
+  #   end
+  # end
+
   private
+
+  def find_user
+    User.find(session[:user_id])
+  end
 
   def user_params
     params.permit(:username, :email, :password, :first_name, :last_name)

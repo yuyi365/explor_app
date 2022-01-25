@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
+import { useHistory } from "react-router";
 import {
   AppBar,
   Toolbar,
@@ -23,6 +24,7 @@ import Search from "@material-ui/icons/Search";
 const PlacesHeader = ({ setUser, user }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const classes = useStyles();
+  const history = useHistory();
 
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -33,6 +35,7 @@ const PlacesHeader = ({ setUser, user }) => {
   };
 
   const handleLogout = () => {
+    history.push("/");
     setUser(null);
     fetch("/logout", {
       method: "DELETE",
@@ -44,7 +47,7 @@ const PlacesHeader = ({ setUser, user }) => {
 
   return (
     <div>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar className={classes.toolbar}>
           <Typography variant="h5" className={classes.titleOne}>
             Explor
@@ -114,14 +117,14 @@ const PlacesHeader = ({ setUser, user }) => {
               transformOrigin={{ horizontal: "right", vertical: "top" }}
               anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
-              <MenuItem>
+              <MenuItem onClick={() => history.push("/myprofile")}>
                 <ListItemIcon>
                   <Face fontSize="small" />
                 </ListItemIcon>
                 My Profile
               </MenuItem>
 
-              <MenuItem href="/">
+              <MenuItem onClick={() => history.push("/")}>
                 <ListItemIcon>
                   <Search fontSize="small" />
                 </ListItemIcon>
@@ -129,7 +132,7 @@ const PlacesHeader = ({ setUser, user }) => {
               </MenuItem>
               <Divider />
 
-              <MenuItem onClick={handleLogout} href="/">
+              <MenuItem onClick={handleLogout}>
                 <ListItemIcon>
                   <Logout fontSize="small" />
                 </ListItemIcon>

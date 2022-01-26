@@ -2,8 +2,6 @@ import * as React from "react";
 import { useState } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -16,11 +14,11 @@ const Profile = ({ setUser, user }) => {
   const [lastname, setLastname] = useState(user.last_name);
   const [email, setEmail] = useState(user.email);
   const [username, setUsername] = useState(user.username);
-  const [currentPassword, setCurrentPassword] = useState(user.password);
-  const [newPassword, setNewPassword] = useState("");
   const [updateName, setUpdateName] = useState(false);
   const [updateUsernameEmail, setUpdateUsernameEmail] = useState(false);
-  const [updatePassword, setUpdatePassword] = useState(false);
+  // const [updatePassword, setUpdatePassword] = useState(false);
+  // const [currentPassword, setCurrentPassword] = useState(user.password);
+  // const [newPassword, setNewPassword] = useState("");
 
   const updateNameFunction = () => {
     setUpdateName(false);
@@ -62,25 +60,26 @@ const Profile = ({ setUser, user }) => {
       .then((data) => setUser(data));
   };
 
-  const updatePasswordFunction = () => {
-    setUpdatePassword(false);
-    const formData = {
-      currentPassword: currentPassword,
-      password: newPassword,
-    };
+  // future development with password updates
+  // const updatePasswordFunction = () => {
+  //   setUpdatePassword(false);
+  //   const formData = {
+  //     currentPassword: currentPassword,
+  //     password: newPassword,
+  //   };
 
-    fetch(`/updatepassword/${user.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((res) => {
-        res.json();
-      })
-      .then((data) => console.log(data));
-  };
+  //   fetch(`/updatepassword/${user.id}`, {
+  //     method: "PATCH",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(formData),
+  //   })
+  //     .then((res) => {
+  //       res.json();
+  //     })
+  //     .then((data) => console.log(data));
+  // };
   // }
   //   alert(
   //     "Your current password does not match what is on file. Please try again!"
@@ -89,7 +88,7 @@ const Profile = ({ setUser, user }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid container component="main" rowSpacing={30}>
+      <Grid container component="main" rowSpacing={55}>
         <CssBaseline />
 
         <Grid
@@ -217,7 +216,7 @@ const Profile = ({ setUser, user }) => {
             }}
           >
             {!updateUsernameEmail ? (
-              <Grid item xs={12} sx={{ mb: 3 }} sm={4}>
+              <Grid item xs={12} sm={4}>
                 <TextField
                   fullWidth
                   disabled
@@ -230,7 +229,7 @@ const Profile = ({ setUser, user }) => {
                 />
               </Grid>
             ) : (
-              <Grid item xs={12} sx={{ mb: 3 }} sm={4}>
+              <Grid item xs={12} sm={4}>
                 <TextField
                   fullWidth
                   autoComplete="username"
@@ -294,7 +293,7 @@ const Profile = ({ setUser, user }) => {
             </Grid>
           </Grid>
 
-          <Grid
+          {/* <Grid
             item
             sx={{
               display: "flex",
@@ -384,8 +383,7 @@ const Profile = ({ setUser, user }) => {
                   Save
                 </Button>
               )}
-            </Grid>
-          </Grid>
+            </Grid> */}
         </Grid>
       </Grid>
     </ThemeProvider>

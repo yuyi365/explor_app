@@ -14737,3 +14737,84 @@ Processing by PlacesController#index as */*
 Completed 200 OK in 22ms (Views: 16.8ms | ActiveRecord: 1.1ms | Allocations: 6252)
 
 
+Started GET "/me" for 127.0.0.1 at 2022-01-25 19:12:10 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `find_user'
+[active_model_serializers]   [1m[36mPlace Load (0.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (26.8ms)
+Completed 200 OK in 82ms (Views: 32.1ms | ActiveRecord: 24.7ms | Allocations: 27322)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-25 19:12:12 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `find_user'
+[active_model_serializers]   [1m[36mPlace Load (0.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (11.12ms)
+Completed 200 OK in 15ms (Views: 10.8ms | ActiveRecord: 1.4ms | Allocations: 6528)
+
+
+Started GET "/places" for 127.0.0.1 at 2022-01-25 19:12:12 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (0.8ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.91ms)
+Completed 200 OK in 15ms (Views: 7.5ms | ActiveRecord: 1.3ms | Allocations: 6257)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2022-01-25 19:13:40 -0500
+Processing by UsersController#update as */*
+  Parameters: {"first_name"=>"Yuyi", "last_name"=>"Li", "id"=>"1", "user"=>{"first_name"=>"Yuyi", "last_name"=>"Li"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `find_user'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:21:in `update'
+  [1m[36mUser Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "yuyi365@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `update'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "yuyi365"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:21:in `update'
+[active_model_serializers]   [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:22:in `update'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (11.45ms)
+Completed 202 Accepted in 41ms (Views: 12.1ms | ActiveRecord: 4.0ms | Allocations: 9585)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2022-01-25 19:13:42 -0500
+Processing by UsersController#update as */*
+  Parameters: {"username"=>"yuyi365", "email"=>"yuyi365@gmail.com", "id"=>"1", "user"=>{"username"=>"yuyi365", "email"=>"yuyi365@gmail.com"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `find_user'
+[31mUnpermitted parameters: :id, :user[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:21:in `update'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "yuyi365@gmail.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `update'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "yuyi365"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `update'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:21:in `update'
+[active_model_serializers]   [1m[36mPlace Load (1.6ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:22:in `update'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (14.18ms)
+Completed 202 Accepted in 30ms (Views: 13.3ms | ActiveRecord: 4.4ms | Allocations: 9224)
+
+
+Started GET "/me" for 127.0.0.1 at 2022-01-25 19:13:57 -0500
+Processing by UsersController#show as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42:in `find_user'
+[active_model_serializers]   [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:11:in `show'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (7.43ms)
+Completed 200 OK in 10ms (Views: 7.6ms | ActiveRecord: 0.6ms | Allocations: 6512)
+
+

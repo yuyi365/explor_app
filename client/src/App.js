@@ -14,7 +14,7 @@ import Login from "./components/Landing/Login";
 import PlacesContainer from "./components/PlacesList/PlacesContainer";
 import Profile from "./components/Profile/Profile";
 
-import "./index.css";
+// import "./index.css";
 
 const App = () => {
   const [user, setUser] = useState(null);

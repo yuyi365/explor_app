@@ -36,7 +36,7 @@ const App = () => {
           setUser(foundUser);
         });
       } else {
-        res.json().then((errors) => console.log(errors));
+        res.json();
       }
     });
   }, []);

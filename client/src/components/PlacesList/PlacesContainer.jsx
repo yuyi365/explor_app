@@ -21,7 +21,6 @@ const PlacesContainer = ({ savedPlaces, setSavedPlaces, handleDelete }) => {
 
   const visiblePlaces = savedPlaces
     .filter((place) => {
-      console.log(place);
       return selectedCategory === "all" || place.category === selectedCategory;
     })
     .filter((place) => {
@@ -39,7 +38,7 @@ const PlacesContainer = ({ savedPlaces, setSavedPlaces, handleDelete }) => {
       if (res.ok) {
         res.json().then((data) => setSavedPlaces(data));
       } else {
-        res.json().then((errors) => console.log(errors));
+        res.json();
       }
     });
   }, []);

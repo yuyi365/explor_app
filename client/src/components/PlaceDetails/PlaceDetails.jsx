@@ -22,8 +22,6 @@ const PlaceDetails = ({ place, selected, refProp, user }) => {
   if (selected)
     refProp?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
 
-  console.log(place);
-
   const handleAddPlace = () => {
     const placeInfo = {
       name: place.name,
@@ -44,13 +42,12 @@ const PlaceDetails = ({ place, selected, refProp, user }) => {
     }).then((res) => {
       if (res.ok) {
         res.json().then((newPlace) => {
-          console.log(newPlace);
           alert(
             `You have sucessfully added ${newPlace.name} to your saved places!`
           );
         });
       } else {
-        res.json().then((errors) => console.log(errors));
+        res.json();
       }
     });
   };
@@ -98,6 +95,7 @@ const PlaceDetails = ({ place, selected, refProp, user }) => {
             display="flex"
             justifyContent="space-between"
             alignItems="center"
+            key={place.id}
           >
             <img src={award.images.small} alt={award.display_name} />
             <Typography variant="subtitle2" color="textSecondary">
@@ -107,7 +105,12 @@ const PlaceDetails = ({ place, selected, refProp, user }) => {
         ))}
 
         {place?.cuisine?.map(({ name }) => (
-          <Chip key={name} size="small" label={name} className={classes.chip} />
+          <Chip
+            key={place.id}
+            size="small"
+            label={name}
+            className={classes.chip}
+          />
         ))}
 
         {place?.address && (

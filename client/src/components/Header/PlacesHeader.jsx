@@ -54,7 +54,10 @@ const PlacesHeader = ({ setUser, user }) => {
           </Typography>
 
           <Box>
-            <Button className={classes.buttonSearch} href="/">
+            <Button
+              className={classes.buttonSearch}
+              onClick={() => history.push("/")}
+            >
               Search For Places
             </Button>
           </Box>

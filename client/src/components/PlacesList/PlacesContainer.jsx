@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PlacesCard from "./PlacesCard";
+import { useHistory } from "react-router";
 import {
   Box,
   Typography,
@@ -31,6 +32,7 @@ const PlacesContainer = ({ savedPlaces, setSavedPlaces, handleDelete }) => {
     });
 
   const classes = useStyles();
+  const history = useHistory();
 
   useEffect(() => {
     fetch("/places").then((res) => {
@@ -143,7 +145,7 @@ const PlacesContainer = ({ savedPlaces, setSavedPlaces, handleDelete }) => {
 
               <Box container noValidate sx={{ mt: 3 }}>
                 <Button
-                  href="/"
+                  onClick={() => history.push("/")}
                   variant="outlined"
                   color="primary"
                   sx={{ mt: 10 }}

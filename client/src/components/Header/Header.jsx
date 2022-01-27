@@ -90,7 +90,10 @@ const Header = ({ setCoordinates, setUser, user }) => {
           </Box>
 
           <Box>
-            <Button className={classes.buttonPlaces} href="/myplaces">
+            <Button
+              className={classes.buttonPlaces}
+              onClick={() => history.push("/myplaces")}
+            >
               My Places
             </Button>
           </Box>

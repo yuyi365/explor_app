@@ -14970,3 +14970,100 @@ Processing by SessionsController#destroy as */*
 Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 178)
 
 
+Started GET "/me" for ::1 at 2022-01-27 11:46:02 -0500
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 404 Not Found in 33ms (Views: 10.3ms | ActiveRecord: 3.8ms | Allocations: 6137)
+
+
+Started POST "/login" for ::1 at 2022-01-27 11:46:06 -0500
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"yuyi365@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "yuyi365@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers]   [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:6:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (31.7ms)
+Completed 200 OK in 342ms (Views: 35.5ms | ActiveRecord: 9.8ms | Allocations: 22082)
+
+
+Started POST "/places" for ::1 at 2022-01-27 11:46:28 -0500
+Processing by PlacesController#create as */*
+  Parameters: {"name"=>"Kuu Ramen", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/0e/74/22/3a/beef-miso-ramen.jpg", "category"=>"restaurant", "user_id"=>1, "website"=>"https://www.facebook.com/kuuramen", "price_level"=>"$", "place"=>{"name"=>"Kuu Ramen", "location"=>"New York City", "image"=>"https://media-cdn.tripadvisor.com/media/photo-s/0e/74/22/3a/beef-miso-ramen.jpg", "category"=>"restaurant", "user_id"=>1, "website"=>"https://www.facebook.com/kuuramen", "price_level"=>"$"}}
+[31mUnpermitted parameter: :place[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mPlace Create (6.6ms)[0m  [1m[32mINSERT INTO "places" ("name", "location", "image", "category", "user_id", "created_at", "updated_at", "website", "price_level") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["name", "Kuu Ramen"], ["location", "New York City"], ["image", "https://media-cdn.tripadvisor.com/media/photo-s/0e/74/22/3a/beef-miso-ramen.jpg"], ["category", "restaurant"], ["user_id", 1], ["created_at", "2022-01-27 16:46:28.326644"], ["updated_at", "2022-01-27 16:46:28.326644"], ["website", "https://www.facebook.com/kuuramen"], ["price_level", "$"]]
+  ↳ app/controllers/places_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:21:in `create'
+[active_model_serializers] Rendered PlaceSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 201 Created in 43ms (Views: 1.0ms | ActiveRecord: 8.6ms | Allocations: 3337)
+
+
+Started GET "/places" for ::1 at 2022-01-27 11:46:31 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (1.7ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.64ms)
+Completed 200 OK in 22ms (Views: 14.2ms | ActiveRecord: 2.3ms | Allocations: 6654)
+
+
+Started DELETE "/logout" for ::1 at 2022-01-27 11:46:53 -0500
+Processing by SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 184)
+
+
+Started POST "/signup" for ::1 at 2022-01-27 11:47:16 -0500
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Bilbo", "last_name"=>"Baggins", "email"=>"bilbo@gmail.com", "username"=>"bilbobaggins", "password"=>"[FILTERED]", "user"=>{"username"=>"bilbobaggins", "email"=>"bilbo@gmail.com", "first_name"=>"Bilbo", "last_name"=>"Baggins"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bilbo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bilbobaggins"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Create (2.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "first_name", "last_name", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["username", "bilbobaggins"], ["email", "bilbo@gmail.com"], ["password_digest", "$2a$12$UMuUTmgtUQ9QqIUuAf7CHO4WVr2y6dy3VQwZTdqydETuK1Z/Cxil."], ["first_name", "Bilbo"], ["last_name", "Baggins"], ["created_at", "2022-01-27 16:47:16.891625"], ["updated_at", "2022-01-27 16:47:16.891625"]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+[active_model_serializers]   [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 6]]
+[active_model_serializers]   ↳ app/controllers/users_controller.rb:16:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.64ms)
+Completed 201 Created in 308ms (Views: 1.6ms | ActiveRecord: 4.1ms | Allocations: 4637)
+
+
+Started POST "/login" for ::1 at 2022-01-27 11:47:23 -0500
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"bilbo@gmail.com", "password"=>"[FILTERED]", "session"=>{"email"=>"bilbo@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bilbo@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+[active_model_serializers]   [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 6]]
+[active_model_serializers]   ↳ app/controllers/sessions_controller.rb:6:in `create'
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (1.81ms)
+Completed 200 OK in 301ms (Views: 1.7ms | ActiveRecord: 0.8ms | Allocations: 1774)
+
+
+Started GET "/places" for ::1 at 2022-01-27 11:47:25 -0500
+Processing by PlacesController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:7:in `index'
+  [1m[36mPlace Load (1.4ms)[0m  [1m[34mSELECT "places".* FROM "places" WHERE "places"."user_id" = $1[0m  [["user_id", 6]]
+  ↳ app/controllers/places_controller.rb:12:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.12ms)
+Completed 200 OK in 8ms (Views: 3.8ms | ActiveRecord: 1.8ms | Allocations: 1415)
+
+
+Started DELETE "/logout" for ::1 at 2022-01-27 11:47:49 -0500
+Processing by SessionsController#destroy as */*
+  Parameters: {"session"=>{}}
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms | Allocations: 176)
+
+

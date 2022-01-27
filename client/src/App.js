@@ -73,7 +73,6 @@ const App = () => {
   const handleDelete = (deletedSavedPlace) => {
     setSavedPlaces(
       savedPlaces.filter((savedPlace) => {
-        console.log(deletedSavedPlace);
         return savedPlace !== deletedSavedPlace;
       })
     );

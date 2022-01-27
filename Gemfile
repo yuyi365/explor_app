@@ -36,6 +36,8 @@ end
 
 # gem "faker", "~> 2.18"
 
+gem 'dotenv-rails'
+
 gem "active_model_serializers", "~> 0.10.12"
 
 gem 'activerecord-reset-pk-sequence'

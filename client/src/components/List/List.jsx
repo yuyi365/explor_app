@@ -61,19 +61,7 @@ const List = ({
               value={priceLevel}
               onChange={(e) => setPriceLevel(e.target.value)}
             >
-              <MenuItem
-                value={
-                  "$" ||
-                  "$ - $$" ||
-                  "$$" ||
-                  "$$ - $$$" ||
-                  "$$$" ||
-                  "$$$ - $$" ||
-                  "$$$$"
-                }
-              >
-                All
-              </MenuItem>
+              <MenuItem>All</MenuItem>
               <MenuItem value={"$"}>$</MenuItem>
               <MenuItem value={"$ - $$"}>$ - $$</MenuItem>
               <MenuItem value={"$$"}>$$</MenuItem>

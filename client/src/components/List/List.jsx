@@ -39,9 +39,7 @@ const List = ({
 
   return (
     <div className={classes.container}>
-      <Typography variant="h4">
-        Restaurants, Hotels, and Attractions around you
-      </Typography>
+      <Typography variant="h4">Discover your next adventure...</Typography>
 
       {isLoading ? (
         <div className={classes.loading}>
